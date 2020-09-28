@@ -8,11 +8,11 @@ class QuestionsContainer extends Component {
       <div>
         <QuestionInput
           addQuestion={this.props.addQuestion}
-          restaurantId={this.props.restaurant.id}
+          testId={this.props.test.id}
         />
         <Questions
           questions={this.props.questions}
-          restaurantId={this.props.restaurant.id}
+          testId={this.props.test.id}
           deleteQuestion={this.props.deleteQuestion}
         />
       </div>

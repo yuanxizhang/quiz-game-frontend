@@ -18,3 +18,4 @@ class Tests extends Component {
   }
 };
 
+export default Tests;

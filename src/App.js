@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import TestsContainer from './containers/TestsContainer';
 
 import './App.css';
 
@@ -7,9 +8,8 @@ function App() {
   return ((
     <Router>
 	  	<div classNmae="App">
-	      <Route path="/" component={Home} />
-	      <Route exact path="/about" component={About} />
-	      <Route exact path="/login" component={Login} />
+	  		<TestsContainer />
+	      
 	     </div>
 	  </Router>)
   );

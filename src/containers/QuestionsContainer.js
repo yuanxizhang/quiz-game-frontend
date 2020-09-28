@@ -1,8 +1,16 @@
 import React, { Component } from 'react'
 import QuestionInput from '../components/questions/QuestionInput'
 import Questions from '../components/questions/Questions'
+import { fetchQuestions } from './actions/questionActions'
 import {connect} from 'react-redux'
+
 class QuestionsContainer extends Component {
+
+  componentDidMount() {
+    console.log(this.props)
+    this.props.fetchQuestions()
+  }
+
   render() {
     return (
       <div>
@@ -25,6 +33,7 @@ const mapStateToProps = ({questions}) => {
 }
 
 const mapDispatchToProps = dispatch => ({
+  fetchQuestions: () => dispatch(fetchQuestions())
   addQuestion: question => dispatch({type: 'ADD_QUESTION', question}),
   deleteQuestion: id => dispatch({type: 'DELETE_QUESTION', id})
 })

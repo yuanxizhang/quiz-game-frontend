@@ -1,4 +1,4 @@
-export function fetchTests() {
+const fetchQuestions = () {
   return (dispatch) => {
     dispatch({ type: 'LOADING_QUESTIONS' });
     fetch('http://api.open-notify.org/astros.json')
@@ -11,4 +11,6 @@ export function fetchTests() {
 					console.log('Error', error.message);
 				}
 			});
+	}
 }
+export default fetchQuestions;

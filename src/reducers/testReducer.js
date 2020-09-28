@@ -19,7 +19,7 @@ export default function testReducer
             const test = {text: action.text, id: cuidFn()};
             return{
                 ...state,
-                tests: [...state.tests, test]
+                tests: [...state.tests, test],
                 loading: false
             }
 
@@ -38,7 +38,7 @@ export default function testReducer
 
             const question = { text: action.question.text, testId: action.question.testId, id: cuidFn() };
             return { ...state,
-              questions: [...state.questions, question]
+              questions: [...state.questions, question],
               loading: false
             }
 

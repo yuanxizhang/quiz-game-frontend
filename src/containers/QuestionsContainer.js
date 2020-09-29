@@ -8,7 +8,7 @@ class QuestionsContainer extends Component {
 
   componentDidMount() {
     console.log(this.props)
-    this.props.fetchQuestions()
+    this.props.getQuestions()
   }
 
   render() {

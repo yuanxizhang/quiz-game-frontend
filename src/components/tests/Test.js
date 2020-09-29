@@ -8,12 +8,19 @@ class Test extends Component {
     const { test } = this.props;
 
     return (
-      <div>
-        <li>
-          {test.text}
-          <button onClick={() => this.props.deleteTest(test.id)}> X </button>
-          <QuestionsContainer test={test}/>
-        </li>
+      <div className='card text-center'>
+        <div className="overflow">
+          <img src='image1' alt='image' />
+        </div>
+        <div className='card-body text-dark'>
+          <li>
+            <h4 className='card-title'>{test.text}</h4>
+          
+            
+            <button onClick={() => this.props.deleteTest(test.id)}>remove</button>
+            <QuestionsContainer test={test}/>
+          </li>
+        </div>
       </div>
     );
   }

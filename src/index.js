@@ -7,7 +7,6 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk';
 import testReducer from './reducers/testReducer.js';
 import "bootstrap/dist/css/bootstrap.css";
-
 import './index.css';
 import App from './App';
 

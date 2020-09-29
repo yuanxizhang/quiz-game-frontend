@@ -24,7 +24,7 @@ class TestInput extends Component {
     return (
       <div>
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
-          <label>Enter the name of the testaurant: </label>
+          <label>Enter the name of the quiz: </label>
           <input
             type="text"
             name="text" 

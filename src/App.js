@@ -4,6 +4,7 @@ import TestsContainer from './containers/TestsContainer';
 import history from './services/history';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import "./App.css";
 
 
 import './App.css';
@@ -15,7 +16,7 @@ function App() {
 	  		
 	  		
         <Switch>
-          <Route exact path='/' component={SignUp} />
+          <Route exact path='/' component={TestsContainer} />
           <Route path="/login" component={Login} />
           <Route path="/sign-up" component={SignUp} />
         </Switch>     

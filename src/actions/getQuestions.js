@@ -1,5 +1,5 @@
-const fetchQuestions = () {
-  return (dispatch) => {
+export default function getQuestions() {
+  return ((dispatch) => {
     dispatch({ type: 'LOADING_QUESTIONS' });
     fetch('http://api.open-notify.org/astros.json')
       .then(response => response.json())
@@ -11,6 +11,5 @@ const fetchQuestions = () {
 					console.log('Error', error.message);
 				}
 			});
-	}
+	})
 }
-export default fetchQuestions;

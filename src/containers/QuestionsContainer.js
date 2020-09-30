@@ -1,10 +1,26 @@
 import React, { Component } from 'react'
 import QuestionInput from '../components/questions/QuestionInput'
 import Questions from '../components/questions/Questions'
+import Question from '../components/questions/Question'
 import getQuestions from '../actions/getQuestions'
 import {connect} from 'react-redux'
 
 class QuestionsContainer extends Component {
+
+  state = {
+    questions: []
+  }
+
+  fetchBookData = () =>{
+    fetch(`https://opentdb.com/api.php?amount=10&category=10&difficulty=medium&type=multiple`)
+    .then(response=> response.json())
+    .then(({data}) => {
+        this.setState({
+            questions: data.results.map(que=>(<Question text={que.question}/>))
+        })
+    })
+    .catch(error => console.log(error))
+}
 
   componentDidMount() {
     console.log(this.props)

@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import TestsContainer from './containers/TestsContainer';
+import Test from './components/tests/Test';
 import history from './services/history';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
-import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
         </nav>
 	  		
         <Switch>
-          <Route exact path='/' component={TestsContainer} />
+          <Route exact path='/' component={Test} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
         </Switch>     

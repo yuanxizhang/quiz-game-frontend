@@ -15,12 +15,12 @@ class Test extends Component {
         </div>
         <div className='card-body text-dark'>
           <div>
-            <h4 className='card-title'>{test.text}</h4>
-            <p className="card-text text-secondery">{test.text}</p>
+            <h4 className='card-title'>{this.props.text}</h4>
+            <p className="card-text text-secondery">{this.props.text}</p>
             <a href="#" className='btn btn-outline-primary'>Start</a>
-            {/* <QuestionsContainer test={test}/> */}
+            { <QuestionsContainer test={this.props}/> }
           </div>
-            <button onClick={() => this.props.deleteTest(test.id)}>remove quiz</button>
+            <button onClick={() => this.props.deleteTest(this.props.id)}>remove quiz</button>
           
         </div> 
       </div>

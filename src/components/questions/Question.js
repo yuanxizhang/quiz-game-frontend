@@ -6,14 +6,13 @@ class Question extends Component {
   }
   
   render() {
-    const { question } = this.props
 
     return (
       <div>
         <li>
-          {question.text}
+          {this.props.text}
         </li>
-        <button onClick={this.handleOnClick}> X </button>
+        <button onClick={this.handleOnClick}> remove </button>
       </div>
     );
   }

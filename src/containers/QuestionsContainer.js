@@ -15,7 +15,6 @@ class QuestionsContainer extends Component {
     return (
       <div class="container">
         <div id="home" class="flex-center flex-column">
-          <h2>Start a quiz game!</h2>
          
           <QuestionInput
             addQuestion={this.props.addQuestion}

@@ -14,7 +14,7 @@ class TestsContainer extends Component {
   render() {
     return (
       <div class="flex-center flex-column">
-        <h2> Quiz Cards </h2>
+        <h3> Pick a Quiz to Play </h3>
         <TestInput addTest={this.props.addTest}/>
         <Tests tests={this.props.tests} deleteTest={this.props.deleteTest}/>
       </div>

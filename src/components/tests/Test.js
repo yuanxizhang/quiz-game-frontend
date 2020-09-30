@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import QuestionsContainer from '../../containers/QuestionsContainer'
-
+import icon1 from '../../assets/react-icon.png'
+import './card-style.css'
 class Test extends Component {
 
 
@@ -8,19 +9,20 @@ class Test extends Component {
     const { test } = this.props;
 
     return (
-      <div className='card text-center'>
+      <div className='card text-center shadow'>
         <div className="overflow">
-          <img src='image1' alt='image' />
+          <img src={icon1} alt='icon1' className='card-img-top'/>
         </div>
         <div className='card-body text-dark'>
-          <li>
+          <div>
             <h4 className='card-title'>{test.text}</h4>
+            <p className="card-text text-secondery">{test.text}</p>
+            <a href="#" className='btn btn-outline-primary'>Start</a>
+            {/* <QuestionsContainer test={test}/> */}
+          </div>
+            <button onClick={() => this.props.deleteTest(test.id)}>remove quiz</button>
           
-            
-            <button onClick={() => this.props.deleteTest(test.id)}>remove</button>
-            <QuestionsContainer test={test}/>
-          </li>
-        </div>
+        </div> 
       </div>
     );
   }

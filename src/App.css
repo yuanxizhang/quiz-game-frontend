@@ -40,7 +40,7 @@
 /* Style the navigation bar */
 .navbar {
   width: 100%;
-  background-color: #555;
+  background-color: darkcyan;
   overflow: auto;
 }
 
@@ -54,14 +54,14 @@
   font-size: 17px;
 }
 
-/* Navbar links on mouse-over */
-.navbar a:hover {
-  background-color: darkblue;
+.active {
+  background-color: navy;
+  color: white;
 }
 
-/* Current/active navbar link */
-.active {
-  background-color: blue;
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  background-color: navy;
 }
 
 /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
@@ -71,6 +71,27 @@
     display: block;
   }
 }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: darkcyan;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
 
 :root {
   background-color: #ecf5ff;

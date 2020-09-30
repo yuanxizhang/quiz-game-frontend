@@ -11,9 +11,11 @@ class Tests extends Component {
 
   render() {
     return(
-      <ul>
-        {this.renderTests()}
-      </ul>
+      <div className='card-deck'>
+        
+          {this.renderTests()}
+        
+      </div>
     );
   }
 };

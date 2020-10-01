@@ -16,10 +16,10 @@ export default function testReducer
           }
 
         case 'ADD_TEST':
-            const test = {text: action.text, id: cuidFn()};
+            const newTest = {text: action.text, id: cuidFn()};
             return{
                 ...state,
-                tests: [...state.tests, test],
+                tests: [...state.tests, newTest],
                 loading: false
             }
 
@@ -34,17 +34,27 @@ export default function testReducer
             loading: true
           }
 
-        case 'ADD_QUESTIONS':
+        case 'ADD_QUESTION':
 
-            const question = { text: action.question.text, testId: action.question.testId, id: cuidFn() };
-            return { ...state,
-              questions: [...state.questions, question],
+            const newQuestion = { text: action.question.text, testId: action.question.testId, id: cuidFn() };
+            return { 
+              ...state,
+              questions: [...state.questions, newQuestion],
+              loading: false
+            }
+        
+        case 'ADD_TRIVIA_QUESTIONS':
+
+            const questions = { questions: action.questions, testId: cuidFn() };
+            return { 
+              ...state,
+              questions: [...state.questions, questions],
               loading: false
             }
 
-        case 'DELETE_QUESTIONS':
-            const questions = state.questions.filter(question => question.id !== action.id);
-            return {...state, questions }
+        case 'DELETE_QUESTION':
+            const remainingQuestions = state.questions.filter(question => question.id !== action.id);
+            return {...state, remainingQuestions}
             
         default:
             return state;

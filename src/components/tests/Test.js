@@ -6,7 +6,6 @@ class Test extends Component {
 
 
   render() {
-    const { test } = this.props;
 
     return (
       <div className='card text-center shadow'>
@@ -17,7 +16,7 @@ class Test extends Component {
           <div>
             <h4 className='card-title'>{this.props.text}</h4>
             <p className="card-text text-secondery">{this.props.text}</p>
-            <a href="#" className='btn btn-outline-primary'>Start</a>
+            <button className='btn btn-outline-primary'>Start</button>
             { <QuestionsContainer test={this.props}/> }
           </div>
             <button onClick={() => this.props.deleteTest(this.props.id)}>remove quiz</button>

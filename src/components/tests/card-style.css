@@ -3,8 +3,8 @@ body {
 }
 
 card {
-    height: 24em;
-    width: 18em;
+    height: 10em;
+    width: 8em;
     border: 1px solid;
     margin: 10px;
     text-align: center;

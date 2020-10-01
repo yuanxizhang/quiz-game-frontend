@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TestInput from '../components/tests/TestInput'
-import Tests from '../components/tests/Tests'
-import fetchTests from '../actions/fetchTests'
+import TestList from '../components/tests/TestList'
+import fetchTests from '../actions/testActions'
 import { connect } from 'react-redux'
 
 class TestsContainer extends Component {
@@ -16,7 +16,7 @@ class TestsContainer extends Component {
       <div class="flex-center flex-column">
         <h3> Pick a Quiz to Play </h3>
         <TestInput addTest={this.props.addTest}/>
-        <Tests tests={this.props.tests} deleteTest={this.props.deleteTest}/>
+        <TestList tests={this.props.tests} deleteTest={this.props.deleteTest}/>
       </div>
     )
   }

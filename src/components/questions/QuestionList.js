@@ -7,9 +7,9 @@ const QuestionList = (props) => {
     const displayQuestions = testQuestions.map((question, index)=><li key={index}><Question question={question} deleteQuestion={props.deleteQuestion}/></li>)
     
     return (
-      <ul>
+      <ol>
         {displayQuestions}
-      </ul>
+      </ol>
     );
 };
 

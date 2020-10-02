@@ -7,25 +7,38 @@ import {connect} from 'react-redux'
 class QuestionsContainer extends Component {
 
   state = {
-    questions: [],
-    isLoading: false,
+    questionBank: [],
+    score: 0,
+    responses: 0,
+    isLoading: false
   }
 
   fetchQuestions = () =>{
     fetch(`https://opentdb.com/api.php?amount=10&category=10&difficulty=medium&type=multiple`)
     .then(response=> response.json())
-    .then(({data}) => {
+    .then((data) => {
         this.setState({ 
-          questions: data.results, 
+          questionBank: data.results, 
           loading: false 
          })
     })
     .catch(error => console.log(error))
-}
+  }
+
+  checkAnswer = (answer, correct_answer) => {
+    if (answer === correct_answer) {
+      this.setState({
+        score: this.state.score + 1
+      })
+    }
+    this.setState({
+      responses: this.state.responses < this.state.questionBank.length ? this.state.responses + 1 : this.state.questionBank.length
+    })
+  }
 
   componentDidMount() {
     console.log(this.props)
-    this.setState({ isLoading: true });
+    this.setState({ loading: true });
     this.fetchQuestions();
   }
 

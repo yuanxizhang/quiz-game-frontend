@@ -53,8 +53,8 @@ export default function testReducer
             }
 
         case 'DELETE_QUESTION':
-            const remainingQuestions = state.questions.filter(question => question.id !== action.id);
-            return {...state, remainingQuestions}
+            const qs = state.questions.filter(question => question.id !== action.id);
+            return {...state, qs}
             
         default:
             return state;

@@ -4,7 +4,7 @@ import Test from './Test';
 class TestList extends Component {
   renderTestList() {
     return(
-      this.props.tests.map(test => <Test key={test.id} deleteTest={this.props.deleteTest} test={test}/>)
+      this.props.tests.map(test => <Test key={test.id} questions={test.questions} deleteTest={this.props.deleteTest} test={test}/>)
     )
   }
 

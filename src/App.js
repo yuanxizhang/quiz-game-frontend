@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import TestsContainer from './containers/TestsContainer';
 import QuestionsContainer from './containers/QuestionsContainer';
-import Test from './components/tests/Test';
+import QuizGame from './components/questions/QuizGame';
 import history from './services/history';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
@@ -12,9 +12,9 @@ import "./App.css";
 function App() {
   return ((
     <Router history={history}>
-	  	<div classNmae="App">
-        <nav class = "navbar navbar-default navbar-fixed-top navbar-expand-sm justify-content-between" role = "navigation">    
-            <div class="navbar-nav justify-content-end">   
+	  	<div className="App">
+        <nav className = "navbar navbar-default navbar-fixed-top navbar-expand-sm justify-content-between" role = "navigation">    
+            <div className ="navbar-nav justify-content-end">   
                <ul className="nav navbar-nav">
                   <li><Link to="/">Quiz Game</Link></li>
                   <li><Link to="/login">Login</Link></li>
@@ -24,7 +24,7 @@ function App() {
         </nav>
 	  		
         <Switch>
-          <Route exact path='/' component={TestsContainer} />
+          <Route exact path='/' component={QuizGame} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
         </Switch>     

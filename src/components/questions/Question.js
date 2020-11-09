@@ -8,11 +8,14 @@ class Question extends Component {
   render() {
 
     return (
-      <div>
-        <li>
-          {this.props.text}
-        </li>
-        <button onClick={this.handleOnClick}> remove </button>
+      <div id="container">
+        <div id="container-container" class="hide">
+          <div id="question">{this.props.questionText}
+          
+        
+            <button onClick={this.handleOnClick}> remove </button>
+          </div>
+        </div>
       </div>
     );
   }

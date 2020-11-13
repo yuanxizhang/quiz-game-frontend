@@ -1,22 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Test from './Test';
  
-class TestList extends Component {
-  renderTestList() {
-    return(
-      this.props.tests.map(test => <Test key={test.id} questions={test.questions} deleteTest={this.props.deleteTest} test={test}/>)
-    )
-  }
-
-  render() { 
+const TestList = (props) => {
+  
     return (
       <div>
         <div className='card-deck'>  
-          {this.renderTestList()}
+          {props.testNames.map(test => <Test key={test.id} questions={test.questions} deleteTest={this.props.deleteTest} test={test}/>)}
         </div>
       </div>
     );
-  }
+
 }
  
 export default TestList;

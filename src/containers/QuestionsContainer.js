@@ -14,7 +14,7 @@ class QuestionsContainer extends Component {
   }
 
   fetchQuestions = () =>{
-    fetch(`https://opentdb.com/api.php?amount=10&category=10&difficulty=medium&type=multiple`)
+    fetch(`http://api.open-notify.org/astros.json`)
     .then(response=> response.json())
     .then((data) => {
         this.setState({ 

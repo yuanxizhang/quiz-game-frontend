@@ -24,7 +24,7 @@ function App() {
         </nav>
 	  		
         <Switch>
-          <Route exact path='/' component={QuizGame} />
+          <Route exact path='/' component={TestsContainer} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
         </Switch>     

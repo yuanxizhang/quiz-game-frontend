@@ -3,20 +3,20 @@ import React, { Component } from 'react';
 class TestInput extends Component {
 
   state = {
-    text: ''
+    name: ''
   }
 
   handleOnChange(event) {
     this.setState({
-      text: event.target.value,
+      name: event.target.value,
     });
   }
 
   handleOnSubmit(event) {
     event.preventDefault();
-    this.props.addTest(this.state.text);
+    this.props.addTest(this.state.name);
     this.setState({
-      text: '',
+      name: ''
     });
   }
 
@@ -27,9 +27,9 @@ class TestInput extends Component {
           <label>Enter the name of the quiz: </label>
           <input
             type="text"
-            name="text" 
+            name="name" 
             id="name"
-            value={this.state.text}
+            value={this.state.name}
             onChange={(event) => this.handleOnChange(event)} />
           <input type="submit" value="Add"/>
         </form>

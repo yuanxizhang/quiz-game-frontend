@@ -1,12 +1,8 @@
 import cuid from 'cuid';
 export const cuidFn = cuid;
 
-export default function testReducer
-(state = {
-    tests: [],
-    questions: [],
-    loading: false
-  }, action) {
+const testsReducer = (state = { cats: [], loading: false }, action) => {
+
     switch(action.type){
         case 'LOADING_TESTS':
           return {
@@ -15,8 +11,15 @@ export default function testReducer
             loading: true
           }
 
-        case 'ADD_TEST':
-            const newTest = {text: action.text, id: cuidFn()};
+          case 'ADD_TESTS':
+            return {
+              ...state,
+              cats: action.tests,
+              loading: false
+            }
+
+          case 'ADD_TEST':
+            const newTest = {name: action.name, id: cuidFn()};
             return{
                 ...state,
                 tests: [...state.tests, newTest],
@@ -60,3 +63,5 @@ export default function testReducer
             return state;
     }
 }
+
+export default testsReducer;

@@ -15,7 +15,7 @@ class TestsContainer extends Component {
       <div class="flex-center flex-column">
         <h3> Let's Play A Quiz Game </h3>
         <TestInput addTest={this.props.addTest}/>
-        <TestList testNames={this.props.testNames} deleteTest={this.props.deleteTest}/>
+        <TestList testCards={this.props.testCards} deleteTest={this.props.deleteTest}/>
       </div>
     )
   }
@@ -23,7 +23,7 @@ class TestsContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    testNames: state.tests,
+    testCards: state.tests,
     loading: state.loading
   }
 }

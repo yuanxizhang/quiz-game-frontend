@@ -14,10 +14,10 @@ class Test extends Component {
         </div>
         <div className='card-body text-dark'>
           <div>
-            <h4 className='card-title'>{this.props.text}</h4>
-            <p className="card-text text-secondery">{this.props.text}</p>
+            <h4 className='card-title'>{this.props.name}</h4>
+            <p className="card-text text-secondery">{this.props.name}</p>
             <button className='btn btn-outline-primary'>Start</button>
-            { <QuestionsContainer test={this.props}/> }
+            { <QuestionsContainer options={this.props.options}/> }
           </div>
             <button onClick={() => this.props.deleteTest(this.props.id)}>remove quiz</button>
           

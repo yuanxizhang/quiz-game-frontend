@@ -1,7 +1,7 @@
 import cuid from 'cuid';
 export const cuidFn = cuid;
 
-const testsReducer = (state = { cats: [], loading: false }, action) => {
+const testsReducer = (state = { tests: [], loading: false }, action) => {
 
     switch(action.type){
         case 'LOADING_TESTS':

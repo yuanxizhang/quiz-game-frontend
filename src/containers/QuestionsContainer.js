@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import QuestionInput from '../components/questions/QuestionInput'
 import QuestionList from '../components/questions/QuestionList'
+import FlashcardList from '../FlashcardList' 
 import getQuestions from '../actions/getQuestions'
 import {connect} from 'react-redux'
 
@@ -55,8 +56,8 @@ class QuestionsContainer extends Component {
             addQuestion={this.props.addQuestion}
             testId={this.props.test.id}
           /> 
-          <QuestionList
-            questions={this.props.questions}
+          <FlashcardList
+            flashcards={this.props.flashcards}
             testId={this.props.test.id}
             deleteQuestion={this.props.deleteQuestion}
           />

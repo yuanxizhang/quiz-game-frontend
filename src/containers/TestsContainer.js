@@ -3,19 +3,21 @@ import { connect } from 'react-redux'
 import { fetchTests } from '../actions/fetchTests'
 import TestInput from '../components/tests/TestInput'
 import TestList from '../components/tests/TestList'
+import FlashcardList from '../FlashcardList' 
 class TestsContainer extends Component {
   
   componentDidMount() {
     console.log(this.props)
-    this.props.fetchTests()
+    // this.props.fetchTests()
   }
 
   render() {
     return (
       <div class="flex-center flex-column">
         <h3> Let's Play A Quiz Game </h3>
-        <TestInput addTest={this.props.addTest}/>
-        <TestList testCards={this.props.testCards} deleteTest={this.props.deleteTest}/>
+        <FlashcardList flashcards={this.props.flashcards} />
+        {/* <TestInput addTest={this.props.addTest}/> */}
+        {/* <TestList testcards={this.props.testcards} deleteTest={this.props.deleteTest}/> */}
       </div>
     )
   }

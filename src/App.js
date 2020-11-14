@@ -151,13 +151,15 @@ function App() {
             </div>
         </nav>
 	  		
-        <Switch>
-          <Route exact path='/' render={() => (
-                <FlashcardList flashcards={flashcards} />
-          )} />
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={SignUp} />
-        </Switch>     
+        <div className="main">
+          <Switch>
+            <Route exact path='/' render={() => (
+                  <FlashcardList flashcards={flashcards} />
+            )} />
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={SignUp} />
+          </Switch> 
+        </div>    
 	     </div>
 	  </Router>)
   );

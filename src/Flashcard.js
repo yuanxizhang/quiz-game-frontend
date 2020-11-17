@@ -13,11 +13,13 @@ const Flashcard = ({flashcard}) => {
                 {flashcard.question}
                 <div className='flashcard-options'>
                     {flashcard.options.map(option => {
-                        return <div className='flashcard-option'>{option.item}</div>
+                        return <div className='flashcard-option' key={option.id}>{option.item}</div>
                     })}
                 </div>
             </div>
-            <div className='back'>{flashcard.answer}</div>
+            <div className='back'>{flashcard.answer}
+                    <br/><br/><br/>{flashcard.explain}
+            </div>
         </div>
     );
 }

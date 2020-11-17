@@ -8,14 +8,12 @@ import {connect} from 'react-redux'
 class QuestionsContainer extends Component {
 
   state = {
-    questionBank: [],
-    score: 0,
-    responses: 0,
-    isLoading: false
+    flashcards: [],
+    loading: false
   }
 
   fetchQuestions = () =>{
-    fetch(`http://api.open-notify.org/astros.json`)
+    fetch(``)
     .then(response=> response.json())
     .then((data) => {
         this.setState({ 
@@ -24,17 +22,6 @@ class QuestionsContainer extends Component {
          })
     })
     .catch(error => console.log(error))
-  }
-
-  checkAnswer = (answer, correct_answer) => {
-    if (answer === correct_answer) {
-      this.setState({
-        score: this.state.score + 1
-      })
-    }
-    this.setState({
-      responses: this.state.responses < this.state.questionBank.length ? this.state.responses + 1 : this.state.questionBank.length
-    })
   }
 
   componentDidMount() {
@@ -57,7 +44,7 @@ class QuestionsContainer extends Component {
             testId={this.props.test.id}
           /> 
           <FlashcardList
-            flashcards={this.props.flashcards}
+            flashcards={this.state.flashcards}
             testId={this.props.test.id}
             deleteQuestion={this.props.deleteQuestion}
           />

@@ -1,0 +1,285 @@
+body {
+    background-color: lightgray;
+    padding-top: 60px; 
+    padding-bottom: 25px;
+    margin: 0;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+}
+  
+.main {
+    padding-top: 2rem; 
+    padding-left: 2rem; 
+    max-width: 100%;
+    margin: 0rem 0rem;
+    background-color: lightgrey;
+}
+
+.App {
+    text-align: center;
+}
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Style the navigation bar */
+  .navbar {
+    width: 100%;
+    background-color: darkcyan;
+    overflow: auto;
+  }
+  
+  /* Navbar links */
+  .navbar a {
+    float: left;
+    text-align: center;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .active {
+    background-color: navy;
+    color: white;
+  }
+  
+  /* Navbar links on mouse-over */
+  .navbar a:hover {
+    background-color: lightgrey;
+  }
+  
+  /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+  @media screen and (max-width: 600px) {
+    .navbar a {
+      float: none;
+      display: block;
+    }
+    body {
+      padding-top: 0px;
+    }
+  }
+  
+  :root {
+    background-color: #ecf5ff;
+    font-size: 62.5%;
+  }
+  
+  * {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-bottom: 1rem;
+  }
+  
+  h1 {
+    font-size: 5.4rem;
+    color: #56a5eb;
+    margin-bottom: 5rem;
+  }
+  
+  h1 > span {
+    font-size: 2.4rem;
+    font-weight: 500;
+  }
+  
+  h2 {
+    font-size: 4.2rem;
+    margin-bottom: 4rem;
+    font-weight: 700;
+  }
+  
+  h3 {
+    font-size: 2.8rem;
+    font-weight: 500;
+  }
+  
+  .container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container > * {
+    width: 100%;
+  }
+  
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .flex-center {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .justify-center {
+    justify-content: center;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: white;
+    padding: 0 0rem;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+  }
+  
+  .form-group > label {
+    color: black;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .btn {
+    background-color: hsl(200, 100%, 50%);
+    color: seagreen;
+    padding: 0em 0em;
+    border-radius: .3em;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: hsl(200, 100%, 40%);
+  }
+  
+  /* BUTTONS */
+  .btn {
+    font-size: 2rem;
+    padding: 0rem 0rem;
+    width: 20rem;
+    text-align: center;
+    border: 0.1rem solid #56a5eb;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: #56a5eb;
+    background-color: white;
+  }
+  
+  .btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+  }
+  
+  .btn[disabled]:hover {
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
+  
+  .card-grid {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    gap: 1rem;
+  }
+  
+  .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 240px;
+    width: 600px;
+    border-radius: .25rem;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
+    background-color: white;
+    transform-style: preserve-3d;
+    transition: 150ms;
+    cursor: pointer;
+    transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
+  }
+  
+  .card:hover {
+    --translate-y: -2px;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .8);
+  }
+  
+  .card.flip {
+    --rotate-y: 180deg;
+  }
+  
+  .card .front {
+    text-align: left;
+    left: 0;
+  }
+  
+  .card .front,
+  .card .back {
+    position: absolute;
+    padding: 1rem;
+    backface-visibility: hidden;
+  }
+  
+  .card .back {
+    transform: rotateY(180deg);
+  }
+  
+  .flashcard-options {
+    margin-top: .75rem;
+    margin-left: .75rem;
+  }
+  
+  .flashcard-option {
+    margin-top: .25rem;
+    color: #555;
+    font-size: .75rem;
+  }
+  
+  .flashcard-option:first-child {
+    margin-top: 0;
+  }

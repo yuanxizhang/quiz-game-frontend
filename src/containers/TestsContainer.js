@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fetchTests } from '../actions/fetchTests'
 import TestInput from '../components/tests/TestInput'
 import TestList from '../components/tests/TestList'
-import FlashcardList from '../FlashcardList' 
+
 class TestsContainer extends Component {
   
   componentDidMount() {

@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 import QuestionInput from '../components/questions/QuestionInput'
 import QuestionList from '../components/questions/QuestionList'
-import FlashcardList from '../FlashcardList' 
+import FlashcardList from '../components/flashcards/FlashcardList' 
 import getQuestions from '../actions/getQuestions'
 import {connect} from 'react-redux'
 
 class QuestionsContainer extends Component {
 
   state = {
-    flashcards: [],
+    questions: [],
     loading: false
   }
 
   fetchQuestions = () =>{
-    fetch(``)
+    fetch(`http://localhost:5000/api/v1/tests`)
     .then(response=> response.json())
     .then((data) => {
         this.setState({ 

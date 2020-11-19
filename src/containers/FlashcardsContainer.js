@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import axios from 'axios'
-import FlashcardList from '../FlashcardList' 
+import FlashcardList from '../components/flashcards/FlashcardList' 
 import "./container.css";
 
 const FlashcardsContainer = () => {

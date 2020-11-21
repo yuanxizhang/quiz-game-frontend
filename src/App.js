@@ -1,6 +1,7 @@
 import React from 'react';
 import { Router, Switch, Route, Link} from 'react-router-dom';
 import FlashcardsContainer from './containers/FlashcardsContainer';
+import JobsContainer from './containers/JobsContainer';
 import history from './services/history';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp'; 
@@ -16,7 +17,7 @@ const App = () => {
             <div className ="navbar-nav justify-content-end">   
                <ul className="nav navbar-nav">
                   <li><Link to="/">Quiz Game</Link></li>
-                  <li><Link to="/login">Login</Link></li>
+                  <li><Link to="/jobs">Jobs</Link></li>
                   <li><Link to="/signup">Sign up</Link></li>
                </ul>
             </div>
@@ -24,8 +25,8 @@ const App = () => {
 	  		
         <div className="main">
           <Switch>
-            <Route exact path='/' component={FlashcardsContainer} />
-            <Route path="/login" component={Login} />
+            <Route exact path='/' component={JobsContainer} />
+            <Route path="/jobs" component={JobsContainer} />
             <Route path="/signup" component={SignUp} />
           </Switch> 
         </div>    

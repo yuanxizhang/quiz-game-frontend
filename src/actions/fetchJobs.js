@@ -5,6 +5,7 @@ export function fetchJobs() {
       dispatch({ type: 'LOADING_JOBS' });
       fetch(BASE_URL)
         .then(response => response.json())
-        .then(responseJSON => dispatch({ type: 'ADD_JOBS', jobs: responseJSON }));
-    };
+        .then(responseJSON => dispatch({ type: 'ADD_JOBS', jobs: responseJSON }))
+        .catch(error => console.log(error));
+      };
 }

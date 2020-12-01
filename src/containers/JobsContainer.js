@@ -2,34 +2,46 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Container } from 'react-bootstrap'
 import { fetchJobs } from '../actions/fetchJobs'
+import { findSearchedJobs } from '../actions/findSearchedJobs'
 import Job from '../components/jobs/Job'
-// import JobsPagination from '../components/jobs/JobsPagination';
-// import SearchForm from '../components/jobs/SearchForm';
-
+import JobSearch from '../components/jobs/JobSearch';
 class JobsContainer extends Component {
 
   componentDidMount() {
-    console.log(this.props)
+    console.log(this.props.jobs.size)
     this.props.fetchJobs()
   }
+
+  handleSearch = (selection) => {
+    this.props.searchJobs(selection);
+  };
 
   render() {
     const jobs = this.props.jobs.map(job => <Job key={job.id} job={job} />);
 
     return(
-      <Container className="my-4">
-        <h1 className="mb-4">GitHub Jobs</h1>
-        {/* <SearchForm params={params} onParamChange={handleParamChange} />
-        <JobsPagination page={page} setPage={setPage} hasNextPage={hasNextPage} /> */}
-        {jobs}
-        {/* <JobsPagination page={page} setPage={setPage} hasNextPage={hasNextPage} /> */}
+      <Container className="container">
+        <div className="main">
+          <h1>Find Jobs on Github</h1>
+          <div>
+              <JobSearch onSearch={this.handleSearch} />
+          </div>
+          {this.props.loading && <h1>Loading...</h1>}
+          <div className="card-grid">
+            {jobs}
+          </div>
+          
+        </div>
       </Container>
     );
   }
 };
 
 function mapDispatchToProps(dispatch){
-  return { fetchJobs: () => dispatch(fetchJobs()) }
+  return { 
+    fetchJobs: () => dispatch(fetchJobs()),
+    searchJobs: (selection) => dispatch(findSearchedJobs(selection))  
+  }
 }
 
 function mapStateToProps(state){

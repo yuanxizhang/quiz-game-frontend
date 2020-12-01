@@ -11,11 +11,10 @@ button, input, select, textarea {
 }
   
 .main {
-    padding-top: 2rem; 
+    position: relative;
     padding-left: 2rem; 
     max-width: 100%;
     margin: 0rem 0rem;
-    background-color: lightgrey;
 }
 
 .App {
@@ -223,6 +222,7 @@ button, input, select, textarea {
   
   .card-grid {
     display: grid;
+    position: absolute;
     align-items: center;
     grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
     gap: 1rem;

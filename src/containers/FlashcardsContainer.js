@@ -44,7 +44,7 @@ const FlashcardsContainer = () => {
         <div>
             <form className="header form-inline" onSubmit={handleSubmit}>
                 <div className="form-group row">
-                    <label htmlFor="subject" className="col-form-label col-sm-10">Select a subject:</label>
+                    <label htmlFor="subject" className="col-form-label col-sm-10">Select a skill:</label>
                     <select id="subject" className ="custom-select col-sm-10" ref={subjectEl}>
                     {subjects.map(subject => {
                         return <option value={subject.name} key={subject.id}>{subject.name}</option>
@@ -53,7 +53,7 @@ const FlashcardsContainer = () => {
                 </div>
                 
                 <div className="form-group form-inline">
-                    <button className="btn btn-info">Get Flashcards</button>
+                    <button className="btn btn-info">Find Flashcards</button>
                 </div>
             </form>
         </div>

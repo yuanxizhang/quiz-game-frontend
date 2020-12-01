@@ -17,7 +17,7 @@ const App = () => {
             <div className ="navbar-nav justify-content-end">   
                <ul className="nav navbar-nav">
                   <li><Link to="/">Quiz Game</Link></li>
-                  <li><Link to="/jobs">Jobs</Link></li>
+                  <li><Link to="/jobs">Find Jobs</Link></li>
                   <li><Link to="/signup">Sign up</Link></li>
                </ul>
             </div>
@@ -25,7 +25,7 @@ const App = () => {
 	  		
         <div className="main">
           <Switch>
-            <Route exact path='/' component={JobsContainer} />
+            <Route exact path='/' component={FlashcardsContainer} />
             <Route path="/jobs" component={JobsContainer} />
             <Route path="/signup" component={SignUp} />
           </Switch> 

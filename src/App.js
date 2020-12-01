@@ -23,7 +23,7 @@ const App = () => {
             </div>
         </nav>     
 	  		
-        <div className="main">
+        <div className="container">
           <Switch>
             <Route exact path='/' component={FlashcardsContainer} />
             <Route path="/jobs" component={JobsContainer} />

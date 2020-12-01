@@ -53,11 +53,11 @@ const FlashcardsContainer = () => {
                 </div>
                 
                 <div className="form-group form-inline">
-                    <button className="btn btn-info">Find Flashcards</button>
+                    <button className="btn btn-primary">Find Flashcards</button>
                 </div>
             </form>
         </div>
-        <div className="main">
+        <div className="card-grid">
             <FlashcardList flashcards={flashcards} />
         </div> 
       </div>

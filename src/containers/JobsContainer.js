@@ -20,17 +20,17 @@ class JobsContainer extends Component {
     const jobs = this.props.jobs.map(job => <Job key={job.id} job={job} />);
 
     return(
-      <Container className="container">
-        <div className="main">
-          <h1>Find Jobs on Github</h1>
-          <div>
+      <Container className="container">     
+        <div className="header">
               <JobSearch onSearch={this.handleSearch} />
-          </div>
-          {this.props.loading && <h1>Loading...</h1>}
+        </div>
+        <div className="main">      
           <div className="card-grid">
             {jobs}
           </div>
-          
+          <div className="loading">
+            {this.props.loading && <h2>Loading...</h2>}
+          </div>
         </div>
       </Container>
     );

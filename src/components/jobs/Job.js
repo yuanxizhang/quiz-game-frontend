@@ -1,13 +1,12 @@
 import React from 'react';
 import { Card, Badge } from 'react-bootstrap'
-import ReactMarkdown from 'react-markdown'
 
 const Job = ({job}) => {
 
-  let a = job.how_to_apply
-  let d = document.createElement('div');
-  d.innerHTML = a;
-  let howToApply = d.innerText;
+  // let a = job.how_to_apply
+  // let d = document.createElement('div');
+  // d.innerHTML = a;
+  // let howToApply = d.innerText;
 
     return (
       <Card className="mb-3">

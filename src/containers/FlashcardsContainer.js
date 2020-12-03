@@ -8,7 +8,7 @@ const FlashcardsContainer = () => {
     const [subjects, setSubjects] = useState([]);
 
     const subjectEl = useRef()
-    const baseURL = 'http://localhost:5000/api/v1/';
+    const baseURL = 'https://online-quiz-api.herokuapp.com//api/v1/';
 
     useEffect(() => {
         axios

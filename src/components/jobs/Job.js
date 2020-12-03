@@ -3,11 +3,6 @@ import { Card, Badge } from 'react-bootstrap'
 
 const Job = ({job}) => {
 
-  // let a = job.how_to_apply
-  // let d = document.createElement('div');
-  // d.innerHTML = a;
-  // let howToApply = d.innerText;
-
     return (
       <Card className="mb-3">
         <Card.Body>
@@ -24,6 +19,7 @@ const Job = ({job}) => {
                 </Card.Subtitle>
                 <Badge variant="secondary" className="mr-2">{job.type}</Badge>
                 <Badge variant="secondary">{job.location}</Badge>
+                {/* <div dangerouslySetInnerHTML={{ __html: job.how_to_apply }}></div> */}
               </div>
               <img className="d-none d-md-block" height="50" alt={job.company} src={job.company_logo} />
             </div>

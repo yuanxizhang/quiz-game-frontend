@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
+import { Form, Button, Row, Col } from 'react-bootstrap';
 import axios from 'axios'
 import FlashcardList from '../components/flashcards/FlashcardList' 
 import "./container.css";
@@ -41,21 +42,30 @@ const FlashcardsContainer = () => {
 
     return (
        <div>
-        <div>
-            <form className="header form-inline" onSubmit={handleSubmit}>
-                <div className="form-group form-inline row">
-                    <label htmlFor="subject" className="col-form-label col-md-10">Select a skill:</label>
-                    <select id="subject" className ="custom-select col-md-10" ref={subjectEl}>
-                    {subjects.map(subject => {
-                        return <option value={subject.name} key={subject.id}>{subject.name}</option>
-                    })}
-                    </select>
-                </div>
-                
-                <div className="form-group form-inline">
-                    <button className="btn btn-primary">Find Flashcards</button>
-                </div>
-            </form>
+        <div className="search-section">
+            <Form className="select-form" onSubmit={handleSubmit}>
+                <Row>
+                    <Col>
+                        <Form.Group controlId="selectLabel" className="select-label">
+                            <Form.Label>Select a subject: </Form.Label>
+                        </Form.Group>
+                    </Col>
+                    <Col>
+                        <Form.Group controlId="selectSubject">
+                            <Form.Control as="select" ref={subjectEl} id="subject">
+                                {subjects.map(subject => {
+                                    return <option value={subject.name} key={subject.id}>{subject.name}</option>
+                                })}
+                            </Form.Control>
+                        </Form.Group>
+                    </Col>
+                    <Col>
+                        <Button variant="primary" type="submit" className="btn-select">
+                            Find Flashcards
+                        </Button>
+                    </Col>  
+                </Row>    
+            </Form>
         </div>
         <div className="card-grid">
             <FlashcardList flashcards={flashcards} />

@@ -5,6 +5,7 @@ import { fetchJobs } from '../actions/fetchJobs'
 import { findSearchedJobs } from '../actions/findSearchedJobs'
 import Job from '../components/jobs/Job'
 import JobSearch from '../components/jobs/JobSearch';
+import "./container.css";
 class JobsContainer extends Component {
 
   componentDidMount() {

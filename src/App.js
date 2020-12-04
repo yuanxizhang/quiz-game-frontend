@@ -13,9 +13,9 @@ const App = () => {
     <Router history={history}>
 	  	<div className="App">
         <nav className = "navbar navbar-default navbar-fixed-top navbar-expand-sm justify-content-between" role = "navigation">    
-            <div className ="navbar-nav justify-content-end">   
+            <div className ="navbar-nav justify-content-end">  
                <ul className="nav navbar-nav">
-                  <li><Link to="/">Quiz Game</Link></li>
+                  <li><Link to="/">Home</Link></li>
                   <li><Link to="/flashcards">Flashcards</Link></li>
                   <li><Link to="/jobs">Developer Jobs</Link></li>
                </ul>

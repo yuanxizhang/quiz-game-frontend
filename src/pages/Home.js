@@ -4,20 +4,23 @@ import 'react-animated-slider/build/horizontal.css';
 
 const Home = () => {
     const slides = [
-        { title: 'Step one', description: 'Study the flashcards to obtain programming skills', image: "https://i.imgur.com/ZXBtVw7.jpg"},
-        { title: 'Step two', description: 'Get a job as a developer', image: "https://i.imgur.com/DvmN8Hx.jpg"}
+        { title: 'Step One', description: 'Be Clear About Your End Goal and Commit to It', image: "https://i.imgur.com/x6kU5V9.jpeg"},
+        { title: 'Step Two', description: 'Select A Language to Learn', image: "https://i.imgur.com/DvmN8Hx.jpg"},
+        { title: 'Step Three', description: 'Read Code Written by Experienced Developers', image: "https://i.imgur.com/s1BaPrn.png"},
+        { title: 'Step Four', description: 'Join A Community of Software Engineers', image: "https://i.imgur.com/QBgYHvG.jpeg"},
+        { title: 'Step Five', description: 'Build projects', image: "https://i.imgur.com/bMOScIo.jpeg"},
+        { title: 'Step Six', description: 'Ace your technical interview', image: "https://i.imgur.com/bRJ9Eki.jpeg"}
     ];
 
     return (
         <div className="headline">
-            <h1>Build something awesome. </h1>
-            <h1>Make yourself a better developer.</h1>
-            <h4>Learn any programming skills, one success at a time.</h4>
+            <h1>Build something awesome. </h1>           
+            <h4>Become a software developer.</h4>
             <div className="slides">
                 <Slider>
                     {slides.map((slide, index) => <div key={index} style={{ background: `url('${slide.image}') no-repeat center center` }}>
-                        <h4>{slide.title}</h4>
-                        <div>{slide.description}</div>
+                        <h4 className="slideText">{slide.title}</h4>
+                        <div className="slideText">{slide.description}</div>
                     </div>)}
                 </Slider>
             </div>

@@ -1,6 +1,7 @@
 body {
-  background-color: #C8D0D2;
-  padding-top: 60px; 
+  background-color: darkseagreen;
+  padding-top: 20px; 
+  margin: 0;
 }
 
 .container {
@@ -19,7 +20,7 @@ body {
 /* Style the navigation bar */
 .navbar {
   width: 100%;
-  background-color: darkcyan;
+  background-color: black;
   overflow: auto;
 }
 
@@ -28,19 +29,20 @@ body {
   float: left;
   text-align: center;
   padding: 12px;
-  color: white;
+  color: darkseagreen;
   text-decoration: none;
   font-size: 1.5rem;
 }
 
 .active {
-  background-color: navy;
-  color: white;
+  background-color: darkgreen;
+  color: black;
 }
 
 /* Navbar links on mouse-over */
 .navbar a:hover {
-  background-color: beige;
+  background-color: darkseagreen;
+  color: black;
 }
 
 /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
@@ -54,22 +56,6 @@ body {
   }
 }
 
-.header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-wrap: wrap;
-  background-color: lightgrey;
-  padding: 0 1.5rem;
-  box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
-}
-
-.headline {
-  position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
-}
-
 .form-group {
   display: flex;
   flex-direction: column;
@@ -80,32 +66,6 @@ body {
   color: black;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
-}
-
-h1,h2,h3,h4 {
-  margin-bottom: 1rem;
-}
-
-h1 {
-  font-size: 5.4rem;
-  color: navy;
-  margin-bottom: 5rem;
-}
-
-h1 > span {
-  font-size: 2.4rem;
-  font-weight: 500;
-}
-
-h2 {
-  font-size: 4.2rem;
-  margin-bottom: 4rem;
-  font-weight: 700;
-}
-
-h3 {
-  font-size: 2.8rem;
-  font-weight: 500;
 }
 
 .flex-column {
@@ -126,21 +86,42 @@ h3 {
   text-align: center;
 }
 
+h1, h2, p, ul, li {
+  font-family: sans-serif;
+}
+ul.nav li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+}
+ul.nav {
+  background-color: #111;
+  padding: 0;
+}
+ul.nav li a {
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 20px;
+  display: inline-block;
+}
+img{
+  max-width: 100%;
+  max-height: 100%;
+  display: block; /* remove extra space below image */
+}
+
 .hidden {
   display: none;
 }
 
-.header {
-  display: flex;
+.select-form {
   position: absolute;
   top: 0.5rem;
-  left: 0rem;
   width: 100vw;
-  justify-content: flex-end;
   align-items: center;
-  flex-wrap: wrap;
-  background-color: lightgrey;
-  padding: 0 1.5rem;
+  background-color: lightslategrey;
+  padding: 0 0rem;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, .6);
 }
 
@@ -183,9 +164,17 @@ h3 {
 }
 
 .btn-search {
-  font-size: 2rem;
+  font-size: 1rem;
+  margin: 0.5rem;
   padding: 1rem 1rem;
-  width: 10rem;
+  width: 12rem;
+}
+
+.btn-select {
+  font-size: 1rem;
+  margin: 0.5rem;
+  padding: 1rem 1rem;
+  width: 12rem;
 }
 
 .card-grid {
@@ -252,4 +241,28 @@ h3 {
 
 .flashcard-option:first-child {
   margin-top: 0;
+}
+
+.search-section {
+  width: 100%;
+  margin: 1px auto;
+  background-color: lightslategrey;
+}
+
+.select-form {  
+  width: 100%;  
+  align-items: center;
+  background-color: lightslategrey;
+  padding: 0 0rem;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, .8);
+}
+
+.select-label {  
+  text-align: right; 
+}
+
+.slideText {
+  text-align: left;
+  padding-top: 0.5rem;
+  padding-left: 0.25rem;
 }

@@ -30,7 +30,7 @@ class JobsContainer extends Component {
             {jobs}
           </div>
           <div className="loading">
-            {this.props.loading && <h1>Loading...</h1>}
+            {this.props.loading && <h4>Loading...</h4>}
           </div>
         </div>
       </Container>

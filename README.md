@@ -7,18 +7,16 @@
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Features](#features)
-* [Status](#status)
 * [Inspiration](#inspiration)
-* [Contact](#contact)
 
 ## General info
 Add more general information about project. What the purpose of the project is? Motivation?
 
 ## Screenshots
-![Quiz Game screenshot](./public/img/screenshot.png)
+![Quiz Game Screenshot](./public/img/screenshot.png)
 
 ## live demo
-![Example screenshot](./img/screenshot.png)
+![Quiz Game Demo](https://quiz-deck.netlify.app/#/flashcards)
 
 ## Technologies
 * React 16.13.1
@@ -28,22 +26,32 @@ Add more general information about project. What the purpose of the project is? 
 * Bootstrap 4
 
 ## Setup
-* Install node.js
+* [Download node.js](https://nodejs.org/en/download/)
+* Install create react app
+
+```javascript
+npm install -g create-react-app
+```
 To run our application in development mode. 
 ```javascript
 npm start
 ```
-We can just navigate to http:localhost:3000 in any browser to preview our app live. 
+We can just navigate to http:localhost:3000 in any browser to preview our app live
+
+To build our application for production
+```javascript
+npm run build
+```
 
 ## Code Examples
 Show examples of usage:
-`put-your-code-here`
+``
 
 ## Features
 List of features ready and TODOs for future development
-* Awesome feature 1
-* Awesome feature 2
-* Awesome feature 3
+* Learn new programming skills with the flashcards
+* Browse developer jobs 
+* Apply foe the jobs you are interested in
 
 ## Inspiration
 Inspired by [Quizlet](https://quizlet.com/) web app

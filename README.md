@@ -1,36 +1,49 @@
-# Quiz Game - a flashcard app
+# Quiz Deck - flashcards for developers
+> A simple flashcard app that helps new developers master programming skills and browse developer jobs posted on Github. The frontend is built with React and Redux, the backend is built with Ruby on Rails and PostgreSQL
 
 ## Table of contents
 * [General info](#general-info)
+* [Screenshots](#screenshots)
 * [Technologies](#technologies)
 * [Setup](#setup)
+* [Features](#features)
+* [Status](#status)
+* [Inspiration](#inspiration)
+* [Contact](#contact)
 
 ## General info
-This project was built with [Create React App](https://github.com/facebook/create-react-app), Ruby on Rails, and PostgreSQL.
-	
+Add more general information about project. What the purpose of the project is? Motivation?
+
+## Screenshots
+![Quiz Game screenshot](./public/img/screenshot.png)
+
+## live demo
+![Example screenshot](./img/screenshot.png)
+
 ## Technologies
-Project is created with:
 * React 16.13.1
-* redux 4.0.5
-* Rails 6.0
+* Redux 4.0.5
+* Rails 6.0.3
 * PostgreSQL 12.3
-	
+* Bootstrap 4
+
 ## Setup
-To run this project, install it locally using npm:
+* Install node.js
+To run our application in development mode. 
+```javascript
+npm start
+```
+We can just navigate to http:localhost:3000 in any browser to preview our app live. 
 
-$ npm install
-$ npm start
+## Code Examples
+Show examples of usage:
+`put-your-code-here`
 
-In the project directory, you can also run:
+## Features
+List of features ready and TODOs for future development
+* Awesome feature 1
+* Awesome feature 2
+* Awesome feature 3
 
-### `yarn start`
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
+## Inspiration
+Inspired by [Quizlet](https://quizlet.com/) web app

@@ -4,12 +4,12 @@ import 'react-animated-slider/build/horizontal.css';
 
 const Home = () => {
     const slides = [
-        { title: 'Step One', description: 'Be Clear About Your End Goal and Commit to It', image: "https://i.imgur.com/x6kU5V9.jpeg"},
+        { title: 'Step One', description: 'Be Clear About Your End Goal and Commit to It', image: "https://i.imgur.com/bRJ9Eki.jpeg"},
         { title: 'Step Two', description: 'Select A Language to Learn', image: "https://i.imgur.com/DvmN8Hx.jpg"},
         { title: 'Step Three', description: 'Read Code Written by Experienced Developers', image: "https://i.imgur.com/s1BaPrn.png"},
         { title: 'Step Four', description: 'Join A Community of Software Engineers', image: "https://i.imgur.com/QBgYHvG.jpeg"},
         { title: 'Step Five', description: 'Build projects', image: "https://i.imgur.com/bMOScIo.jpeg"},
-        { title: 'Step Six', description: 'Ace your technical interview', image: "https://i.imgur.com/bRJ9Eki.jpeg"}
+        { title: 'Step Six', description: 'Ace your technical interview', image: "https://i.imgur.com/t3z4KcD.jpeg"}
     ];
 
     return (

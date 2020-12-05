@@ -1,5 +1,5 @@
 body {
-  background-color: darkseagreen;
+  background-color: #748CAB;
   padding-top: 60px;
   margin: 0;
 }
@@ -14,11 +14,11 @@ ul.nav li {
   margin: 0;
 }
 ul.nav {
-  background-color: #111;
+  background-color: #1D2D44;
   padding: 0;
 }
 ul.nav li a {
-  color: darkseagreen;
+  color: 748CAB;
   font-weight: bold;
   text-decoration: none;
   padding: 20px;

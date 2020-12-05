@@ -9,7 +9,6 @@ import "./container.css";
 class JobsContainer extends Component {
 
   componentDidMount() {
-    console.log(this.props.jobs.size)
     this.props.fetchJobs()
   }
 

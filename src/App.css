@@ -1,5 +1,5 @@
 body {
-  background-color: darkseagreen;
+  background-color: #748CAB;
   padding-top: 20px; 
   margin: 0;
 }
@@ -20,7 +20,7 @@ body {
 /* Style the navigation bar */
 .navbar {
   width: 100%;
-  background-color: black;
+  background-color: #1D2D44;
   overflow: auto;
 }
 
@@ -29,19 +29,19 @@ body {
   float: left;
   text-align: center;
   padding: 12px;
-  color: darkseagreen;
+  color: #748CAB;
   text-decoration: none;
   font-size: 1.5rem;
 }
 
 .active {
-  background-color: darkgreen;
+  background-color: #748CAB;
   color: black;
 }
 
 /* Navbar links on mouse-over */
 .navbar a:hover {
-  background-color: darkseagreen;
+  background-color: #748CAB;
   color: black;
 }
 
@@ -240,14 +240,15 @@ ul.nav li a {
 
 .search-section {
   width: 100%;
-  margin: 1px auto;
-  background-color: lightslategrey;
+  margin: 0px auto;
+  background-color: #748CAB;
+  border: 1px solid #000000;
 }
 
 .select-form {  
   width: 100%;  
   align-items: center;
-  background-color: lightslategrey;
+  background-color: #748CAB;
   padding: 0 0rem;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, .8);
 }

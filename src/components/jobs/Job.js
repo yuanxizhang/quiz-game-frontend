@@ -19,7 +19,7 @@ const Job = ({job}) => {
                 </Card.Subtitle>
                 <Badge variant="secondary" className="mr-2">{job.type}</Badge>
                 <Badge variant="secondary">{job.location}</Badge>
-                {/* <div dangerouslySetInnerHTML={{ __html: job.how_to_apply }}></div> */}
+                <div dangerouslySetInnerHTML={{ __html: job.how_to_apply }} className="howtoapply"></div>
               </div>
               <img className="d-none d-md-block" height="50" alt={job.company} src={job.company_logo} />
             </div>

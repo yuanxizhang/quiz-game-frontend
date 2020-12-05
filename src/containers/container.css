@@ -28,6 +28,13 @@ body {
   font-size: 2rem;
   text-align: center;
 }
+
+.howtoapply {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 40rem;  
+}
   
   .flex-column {
     display: flex;

@@ -25,6 +25,7 @@ body {
 .loading {
   position: absolute;
   top: 6rem;
+  left: 3rem;
   font-size: 2rem;
   text-align: center;
 }
@@ -34,6 +35,10 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   width: 40rem;  
+}
+
+.companylogo {
+  overflow: hidden;
 }
   
   .flex-column {

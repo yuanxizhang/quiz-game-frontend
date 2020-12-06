@@ -21,7 +21,9 @@ const Job = ({job}) => {
                 <Badge variant="secondary">{job.location}</Badge>
                 <div dangerouslySetInnerHTML={{ __html: job.how_to_apply }} className="howtoapply"></div>
               </div>
-              <img className="d-none d-md-block" height="50" alt={job.company} src={job.company_logo} />
+              <div className="companylogo">
+                <img className="d-none d-md-block" height="50" alt={job.company} src={job.company_logo} />
+              </div>
             </div>
             
             

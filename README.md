@@ -1,22 +1,21 @@
-# Quiz Deck - flashcards for developers
-> A simple flashcard app that helps new developers master programming skills and browse developer jobs posted on Github. The frontend is built with React and Redux, the backend is built with Ruby on Rails and PostgreSQL
+# Quiz Game - A Flashcard App for Deveopers
+> A simple web application that helps new developers master programming skills and improve their chances of getting a developer job. The frontend is built with React and Redux, the backend is built with Ruby on Rails and PostgreSQL
 
 ## Table of contents
-* [General info](#general-info)
+* [Users](#User pain point)
 * [Screenshots](#screenshots)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Features](#features)
 * [Inspiration](#inspiration)
 
-## General info
-Add more general information about project. What the purpose of the project is? Motivation?
-
+## User pain point
+New developers who are trying to improve their programming skill needs a tool to practice and learn.
 ## Screenshots
 ![Quiz Game Screenshot](./public/img/screenshot.png)
 
 ## live demo
-![Quiz Game Demo](https://quiz-deck.netlify.app/#/flashcards)
+![Quiz Game Demo](https://quiz-box.netlify.app/#/flashcards)
 
 ## Technologies
 * React 16.13.1
@@ -26,17 +25,16 @@ Add more general information about project. What the purpose of the project is? 
 * Bootstrap 4
 
 ## Setup
-* [Download node.js](https://nodejs.org/en/download/)
-* Install create react app
-
+* You will need [node.js](https://nodejs.org/en/download/) to run this app.
+* To build a React app like this one, you need to install create-react-app
 ```javascript
 npm install -g create-react-app
 ```
-To run our application in development mode. 
+* To run the application in development mode. 
 ```javascript
 npm start
 ```
-We can just navigate to http:localhost:3000 in any browser to preview our app live
+*You can just navigate to http:localhost:3000 in any browser to preview the app live
 
 To build our application for production
 ```javascript

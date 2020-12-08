@@ -1,13 +1,14 @@
-# Quiz Game - A Flashcard App for Deveopers
+# Quiz Game - A Flashcard App 
 > A simple web application that helps new developers master programming skills and improve their chances of getting a developer job. The frontend is built with React and Redux, the backend is built with Ruby on Rails and PostgreSQL
 
 ## Table of contents
 * [Objective](#Objective)
 * [Technologies](#technologies)
+* [Demo](#Demo)
 * [Setup](#setup)
 * [Features](#features)
 * [Inspiration](#inspiration)
-* [demo](#demo)
+* [Backend](#backend)
 
 ## Objective
 Provide a tool for new developers to practice, learn, and land a developer job.
@@ -18,6 +19,10 @@ Provide a tool for new developers to practice, learn, and land a developer job.
 * PostgreSQL 12.3
 * Bootstrap 4.5.2
 * axios 0.21.0
+
+## Demo
+* [Quiz Game live demo](https://quiz-box.netlify.app/#/flashcards)
+![screen shot](https://github.com/yuanxizhang/quiz-game-frontend/blob/master/public/img/sreenshot.png)
 
 ## Setup
 We will need [node.js](https://nodejs.org/en/download/) to run this app.
@@ -42,10 +47,6 @@ npm run build
 * Search jobs based on job title and job location
 ## Inspiration
 Inspired by [Quizlet](https://quizlet.com/)
-## demo
-* [Quiz Game live demo](https://quiz-box.netlify.app/#/flashcards)
-![screen shot](https://github.com/yuanxizhang/quiz-game-frontend/blob/master/public/img/sreenshot.png)
-
-## Rails API backend 
-* [backend deployed on heroku](http://online-quiz-api.herokuapp.com/api/v1/tests)
-* [backend repo](https://github.com/yuanxizhang/quiz-game-api)
+## Backend 
+* [Rails backend deployed on heroku](http://online-quiz-api.herokuapp.com/api/v1/tests)
+* [Rails backend Github repo](https://github.com/yuanxizhang/quiz-game-api)

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import FlashcardsContainer from './containers/FlashcardsContainer';
 import JobsContainer from './containers/JobsContainer';
 import history from './services/history';

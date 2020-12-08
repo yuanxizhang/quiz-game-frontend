@@ -7,6 +7,7 @@
 * [Setup](#setup)
 * [Features](#features)
 * [Inspiration](#inspiration)
+* [demo](#demo)
 
 ## Objective
 Provide a tool for new developers to practice, learn, and land a developer job.
@@ -41,10 +42,10 @@ npm run build
 * Search jobs based on job title and job location
 ## Inspiration
 Inspired by [Quizlet](https://quizlet.com/)
-## live demo
-[Quiz Game demo](https://quiz-box.netlify.app/#/flashcards)
+## demo
+* [Quiz Game live demo](https://quiz-box.netlify.app/#/flashcards)
 ![screen shot](https://github.com/yuanxizhang/quiz-game-frontend/blob/master/public/img/sreenshot.png)
 
 ## Rails API backend 
-[backend deployed on heroku](http://online-quiz-api.herokuapp.com/api/v1/tests)
-[backend repo](https://github.com/yuanxizhang/quiz-game-api)
+* [backend deployed on heroku](http://online-quiz-api.herokuapp.com/api/v1/tests)
+* [backend repo](https://github.com/yuanxizhang/quiz-game-api)

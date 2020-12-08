@@ -43,7 +43,7 @@ npm run build
 Inspired by [Quizlet](https://quizlet.com/)
 ## live demo
 [Quiz Game demo](https://quiz-box.netlify.app/#/flashcards)
-![screen shot](./public/img/screenshot.png)
+![screen shot](https://github.com/yuanxizhang/quiz-game-frontend/blob/master/public/img/sreenshot.png)
 
 ## Rails API backend 
 [backend deployed on heroku](http://online-quiz-api.herokuapp.com/api/v1/tests)

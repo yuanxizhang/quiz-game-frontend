@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
-import axios from 'axios'
+import TestDataService from "../services/TestDataService";
 import FlashcardList from '../components/flashcards/FlashcardList' 
 import "./container.css";
 
@@ -9,28 +9,31 @@ const FlashcardsContainer = () => {
     const [subjects, setSubjects] = useState([]);
 
     const subjectEl = useRef()
-    const baseURL = 'https://online-quiz-api.herokuapp.com//api/v1/';
 
     useEffect(() => {
-        axios
-        .get(`${baseURL}/tests`)
+        let unmounted = false;
+
+        TestDataService
+        .getAll()
         .then(resp => {
-            setSubjects(resp.data)
+            if (!unmounted) {
+                setSubjects(resp.data)
+            }
         })
         .catch((error) => {
-            console.log('Error', error.message);
+            if (!unmounted) {
+                console.log('Error', error.message);
+            }
         })
-            
-    }, [])
 
-    useEffect(() => {
-    
+        return () => { unmounted = true };      
     }, [])
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        axios
-        .get(`${baseURL}/tests`)
+        e.preventDefault();
+
+        TestDataService
+        .getAll()
         .then((resp) => {
             console.log(resp.data.filter(s => s.name === subjectEl.current.value)[0]);
             setFlashcards(resp.data.filter(s => s.name === subjectEl.current.value)[0].questions);
@@ -46,12 +49,12 @@ const FlashcardsContainer = () => {
             <Form className="select-form" onSubmit={handleSubmit}>
                 <Row>
                     <Col>
-                        <Form.Group controlId="selectLabel" className="select-label">
+                        <Form.Group className="select-label">
                             <Form.Label>Select a subject: </Form.Label>
                         </Form.Group>
                     </Col>
                     <Col>
-                        <Form.Group controlId="selectSubject">
+                        <Form.Group>
                             <Form.Control as="select" ref={subjectEl} id="subject">
                                 {subjects.map(subject => {
                                     return <option value={subject.name} key={subject.id}>{subject.name}</option>

@@ -5,13 +5,13 @@ const Question = ({ question, onNextClicked }) => {
     const [answered, setAnswered] = useState(false);
     const [selectedOption, setSelectedOption] = useState({});
 
-    const onOptionClicked = (option) => {
+    const handleOptionClick = (option) => {
         setAnswered(true);
         setSelectedOption(option);
     };
     
     const isCorrect = (option) => {
-        return option === question.answer;
+        return option.item === question.answer;
     };
     
     const resetQuestion = () => {
@@ -31,7 +31,7 @@ const Question = ({ question, onNextClicked }) => {
                 return (
                     <button
                         key={option.id}
-                        onClick={() => onOptionClicked(option)}
+                        onClick={() => handleOptionClick(option)}
                         className={`question-option 
                         // add a "correct" class to the option
                         ${answered && isCorrect(option) && "correct"}
@@ -42,7 +42,7 @@ const Question = ({ question, onNextClicked }) => {
                         <span>
                         {answered ? (isCorrect(option) ? "✔" : "X") : (index + 1)}
                         </span>
-                        {option}
+                        {option.item}
                     </button>
                 );
             })}

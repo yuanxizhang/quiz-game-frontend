@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import FlashcardsContainer from './containers/FlashcardsContainer';
+import TestsContainer from './containers/TestsContainer';
 import JobsContainer from './containers/JobsContainer';
 import history from './services/history';
 import Home from './pages/Home';
@@ -17,6 +18,7 @@ const App = () => {
                <ul className="nav navbar-nav">
                   <li><Link to="/">Home</Link></li>
                   <li><Link to="/flashcards">Flashcards</Link></li>
+                  <li><Link to="/assesments">Assessments</Link></li>
                   <li><Link to="/jobs">Developer Jobs</Link></li>
                </ul>
             </div>
@@ -26,6 +28,7 @@ const App = () => {
           <Switch>
             <Route exact path='/' component={Home} />          
             <Route path="/flashcards" component={FlashcardsContainer} />
+            <Route path="/assessments" component={TestsContainer} />
             <Route path="/jobs" component={JobsContainer} />
           </Switch> 
         </div>    

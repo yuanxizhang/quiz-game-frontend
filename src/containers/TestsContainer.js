@@ -1,68 +1,80 @@
 import React, {useState, useEffect, useRef} from 'react';
-import axios from 'axios'
-import Question from './components/flashcards//Question';
-import './container.css';
+import { Form, Button, Row, Col } from 'react-bootstrap';
+import TestDataService from "../services/TestDataService";
+import Questions from '../components/questions/Questions' 
 
 const TestsContainer = () => {
-  const [questions, setQuestions] = useState([]);
-  const [tests, setTests] = useState([]);
+    const [subjects, setSubjects] = useState([]);
+    const [questions, setQuestions] = useState([]);
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [score, setScore] = useState(0);
-  const [showFinished, setShowFinished] = useState(false);
+    const subjectEl = useRef()
 
-  const currentQuestion = questions[currentIndex];
+    useEffect(() => {
+        let unmounted = false;
 
-  const onNextClicked = (selectedOption) => {
-    if (currentQuestion.answer === selectedOption) {
-      setScore(score + 1);
+        TestDataService
+        .getAll()
+        .then(resp => {
+            if (!unmounted) {
+                setSubjects(resp.data)
+            }
+        })
+        .catch((error) => {
+            if (!unmounted) {
+                console.log('Error', error.message);
+            }
+        })
+
+        return () => { unmounted = true };      
+    }, [])
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        TestDataService
+        .getAll()
+        .then((resp) => {
+            console.log(resp.data.filter(s => s.name === subjectEl.current.value)[0]);
+            setQuestions(resp.data.filter(s => s.name === subjectEl.current.value)[0].questions);
+        })
+        .catch((error) =>  {
+            console.log('Error', error.message);
+        })
     }
 
-    if (currentIndex + 1 > questions.length - 1) {
-      setShowFinished(true);
-      return;
-    }
-    setCurrentIndex(currentIndex + 1);
-  };
-
-  const resetQuiz = () => {
-    setCurrentIndex(0);
-    setShowFinished(false);
-    setScore(0);
-  };
-
-  return questions.length ? (
-    <div>
-      {showFinished ? (
-        <div className="results">
-          <img
-            src="https://i.imgur.com/O55Rr9H.jpeg"
-            alt="Greenland"
-          />
-          <h3>
-            Your results are out. You scored {score} out of {questions.length}
-          </h3>
+    return (
+       <div>
+        <div className="search-section">
+            <Form className="select-form" onSubmit={handleSubmit}>
+                <Row>
+                    <Col>
+                        <Form.Group className="select-label">
+                            <Form.Label>Select a quiz: </Form.Label>
+                        </Form.Group>
+                    </Col>
+                    <Col>
+                        <Form.Group>
+                            <Form.Control as="select" ref={subjectEl} id="subject">
+                                {subjects.map(subject => {
+                                    return <option value={subject.name} key={subject.id}>{subject.name}</option>
+                                })}
+                            </Form.Control>
+                        </Form.Group>
+                    </Col>
+                    <Col>
+                        <Button variant="primary" type="submit" className="btn-select">
+                            Find Test
+                        </Button>
+                    </Col>  
+                </Row>    
+            </Form>
         </div>
-      ) : (
-        <Question
-          onNextClicked={onNextClicked}
-          question={currentQuestion}
-          key={currentQuestion.id}
-        />
-      )}
-      {showFinished ? (
-        <button className="try-again" onClick={resetQuiz}>
-          Try again
-        </button>
-      ) : (
-        <div className="questions-progress">
-          {currentIndex + 1}/{questions.length}
-        </div>
-      )}
-    </div>
-  ) : (
-    <p>Loading</p>
-  );
-};
+        <div>
+            <Questions questionss={questions} />
+        </div> 
+      </div>
+    );
+    
+}
 
 export default TestsContainer;

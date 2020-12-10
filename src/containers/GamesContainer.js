@@ -1,27 +1,31 @@
 import React, {useState, useEffect, useRef} from 'react';
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import TestDataService from "../services/TestDataService";
 import Questions from '../components/questions/Questions' 
 
-const TestsContainer = () => {
+const GamesContainer = () => {
     const [subjects, setSubjects] = useState([]);
     const [questions, setQuestions] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const subjectEl = useRef()
 
     useEffect(() => {
         let unmounted = false;
+        setLoading(true);
 
         TestDataService
         .getAll()
         .then(resp => {
             if (!unmounted) {
-                setSubjects(resp.data)
+                setSubjects(resp.data);
+                setLoading(false);
             }
         })
         .catch((error) => {
             if (!unmounted) {
                 console.log('Error', error.message);
+                setLoading(false);
             }
         })
 
@@ -43,8 +47,8 @@ const TestsContainer = () => {
     }
 
     return (
-       <div>
-        <div className="search-section">
+       <Container>
+        <Row className="search-section">
             <Form className="select-form" onSubmit={handleSubmit}>
                 <Row>
                     <Col>
@@ -63,18 +67,21 @@ const TestsContainer = () => {
                     </Col>
                     <Col>
                         <Button variant="primary" type="submit" className="btn-select">
-                            Find Test
+                            Find Quiz
                         </Button>
                     </Col>  
                 </Row>    
             </Form>
-        </div>
-        <div>
-            <Questions questionss={questions} />
-        </div> 
-      </div>
+        </Row>
+        <Row>
+            <Questions questions={questions} />
+        </Row> 
+        <Row className="loading">
+            {loading && <h4>Loading...</h4>}
+        </Row>
+      </Container>
     );
     
 }
 
-export default TestsContainer;
+export default GamesContainer;

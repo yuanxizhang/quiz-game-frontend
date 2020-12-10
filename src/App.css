@@ -5,10 +5,9 @@ body {
 }
 
 .container {
-  position: absolute;
+  display: flex;
   width: 100vw;
   height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -175,8 +174,8 @@ ul.nav li a {
 .card-grid {
   display: grid;
   position: absolute;
-  top: 3rem;
-  left: 3rem;
+  top: 6rem;
+  left: 6rem;
   align-items: center;
   grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
   gap: 1rem;
@@ -239,6 +238,7 @@ ul.nav li a {
 }
 
 .search-section {
+  position: absolute;
   width: 100%;
   margin: 0px auto;
   background-color: #748CAB;
@@ -246,6 +246,7 @@ ul.nav li a {
 }
 
 .select-form {  
+  position: absolute;
   width: 100%;  
   align-items: center;
   background-color: #748CAB;

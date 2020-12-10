@@ -1,10 +1,10 @@
 body {
-    background-color: darkseagreen;
-    padding-top: 60px; 
+  background-color: #748CAB;
+  padding-top: 60px; 
 }
 
 .container {
-  position: absolute;
+  position: relative;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -18,7 +18,7 @@ body {
 
 .main {
   position: absolute;
-  top: 6rem;
+  top: 0rem;
   left: 3rem;
 }
 
@@ -85,11 +85,11 @@ body {
     padding: 1rem 1rem;
     width: 20rem;
     text-align: center;
-    border: 0.1rem solid blue;
+    border: 0.1rem solid #1D2D44;
     margin-bottom: 1rem;
     text-decoration: none;
-    color: blue;
-    background-color: white;
+    color: white;
+    background: #1D2D44;
   }
   
   .btn:hover {
@@ -106,6 +106,8 @@ body {
   }
 
   .btn-search {
+    color: white;
+    background: #1D2D44;
     font-size: 1rem;
     margin: 0.5rem;
     padding: 1rem 1rem;
@@ -113,6 +115,8 @@ body {
   }
   
   .btn-select {
+    color: white;
+    background: #1D2D44;
     font-size: 1rem;
     margin: 0.5rem;
     padding: 1rem 1rem;
@@ -188,19 +192,29 @@ body {
   .search-section {
     position: absolute;
     top: 0.1rem;
-    left: 6rem;
+    left: 3rem;
     width: 100%;
     margin: 1px auto;
-    background-color: lightslategrey;
+    background-color: #74BCAB;
   }
 
   .select-form {  
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
     width: 100%;  
     align-items: center;
-    background-color: lightslategrey;
+    background-color: #748CAB;
     padding: 0 0rem;
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, .6);
   }
-  
-  
+
+  .quiz {
+    position: absolute;
+    top: 6rem;
+    left: 3rem;
+    width: 100%;
+    margin: 1px auto;
+    background-color: #748CAB;
+  }
   

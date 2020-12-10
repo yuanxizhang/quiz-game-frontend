@@ -24,9 +24,9 @@ const Question = ({ question, onNextClicked }) => {
         <div className="question">
             <section>
             <div className="question-text-holder">
-                {answered && <button onClick={resetQuestion}>Next</button>}
-                <h4 className="question-text">{question.question}</h4>
-            </div>
+                {answered && <button onClick={resetQuestion}>Next</button>} 
+                <h3 className="question-text">{question.question}</h3>  
+            </div>           
             {question.options.map((option, index) => {
                 return (
                     <button
@@ -46,6 +46,7 @@ const Question = ({ question, onNextClicked }) => {
                     </button>
                 );
             })}
+            
             </section>
         </div>
     );

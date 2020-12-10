@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import TestDataService from "../services/TestDataService";
 import FlashcardList from '../components/flashcards/FlashcardList' 
 import "./container.css";
@@ -7,22 +7,26 @@ import "./container.css";
 const FlashcardsContainer = () => {
     const [flashcards, setFlashcards] = useState([]);
     const [subjects, setSubjects] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const subjectEl = useRef()
 
     useEffect(() => {
         let unmounted = false;
+        setLoading(true);
 
         TestDataService
         .getAll()
         .then(resp => {
             if (!unmounted) {
-                setSubjects(resp.data)
+                setSubjects(resp.data);
+                setLoading(false);
             }
         })
         .catch((error) => {
             if (!unmounted) {
                 console.log('Error', error.message);
+                setLoading(false);
             }
         })
 
@@ -44,8 +48,8 @@ const FlashcardsContainer = () => {
     }
 
     return (
-       <div>
-        <div className="search-section">
+       <Container className="container">
+        <Row className="search-section">
             <Form className="select-form" onSubmit={handleSubmit}>
                 <Row>
                     <Col>
@@ -69,11 +73,14 @@ const FlashcardsContainer = () => {
                     </Col>  
                 </Row>    
             </Form>
-        </div>
-        <div className="card-grid">
+        </Row>
+        <Row className="card-grid">
             <FlashcardList flashcards={flashcards} />
-        </div> 
-      </div>
+        </Row> 
+        <Row className="loading">
+            {loading && <h4>Loading...</h4>}
+        </Row>
+      </Container>
     );
     
 }

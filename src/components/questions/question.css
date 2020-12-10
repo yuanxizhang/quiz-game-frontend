@@ -4,7 +4,7 @@
 }
 
 .question section{
-    width: 40%;
+    width: 100%;
     margin-left: 2%;
 }
 
@@ -84,7 +84,6 @@
     .question {
         display: block;
     }
-    
     .question section{
         width: unset;
     }

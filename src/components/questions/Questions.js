@@ -11,7 +11,7 @@ const Questions = ({ questions }) => {
   const currentQuestion = questions[currentIndex];
 
   const onNextClicked = (selectedOption) => {
-    if (currentQuestion.answer === selectedOption) {
+    if (currentQuestion.answer === selectedOption.item) {
       setScore(score + 1);
     }
 
@@ -36,9 +36,8 @@ const Questions = ({ questions }) => {
             src="https://i.imgur.com/O55Rr9H.jpeg"
             alt="Iceburg"
           />
-          <h3>
-            Your results are out. You scored {score} out of {questions.length}
-          </h3>
+          <h3>Score: {Math.floor((score / questions.length) * 100)}%</h3>
+          <h3>You answered {score} out of {questions.length} questions correct.</h3>
         </div>
       ) : (
         <Question
@@ -58,7 +57,7 @@ const Questions = ({ questions }) => {
       )}
     </div>
   ) : (
-    <p>Loading</p>
+    <p>...</p>
   );
 };
 

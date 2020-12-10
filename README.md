@@ -18,8 +18,7 @@
 ![diagram](https://github.com/yuanxizhang/quiz-game-frontend/blob/master/public/img/diagram.png)
 
 *  The App component is a container with React Router. It has a navbar that links to routes paths.
-* The FlashcardsContainer and QuisGameContainer call TestDataService functions which use axios to make HTTP requests and receive responses.
-*  The FlashcardsContainer and QuisGameContainer use Hooks as its state management tool.
+* The FlashcardsContainer and QuizGamesContainer calls TestDataService functions which use axios to make HTTP requests and receive responses.
 *  The JobsContainer uses Redux-Thunk middleware to make an asynchronous web request to Github Jobs API in an action creator function 
 *  The action creators are connected to the Redux store using the connect function in conjunction with mapStatetoProps and mapDispatchToProps. 
 ## Technologies
@@ -50,7 +49,8 @@ To build this application for production
 npm run build
 ```
 ## Frontend
-To build a React app, install create-react-app:
+
+Install create-react-app:
 ```
 npm install -g create-react-app
 ```
@@ -58,7 +58,6 @@ Create a new React project:
 ```
 npx create-react-app quiz-game-frontend
 ```
-
 ## Backend 
 
 To build an API only Rail app with PostgeAQL database:

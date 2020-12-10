@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import FlashcardsContainer from './containers/FlashcardsContainer';
-import GamesContainer from './containers/GamesContainer';
+import QuizGamesContainer from './containers/QuizGamesContainer';
 import JobsContainer from './containers/JobsContainer';
 import history from './services/history';
 import Home from './pages/Home';
@@ -28,7 +28,7 @@ const App = () => {
           <Switch>
             <Route exact path='/' component={Home} />          
             <Route path="/flashcards" component={FlashcardsContainer} />
-            <Route path="/games" component={GamesContainer} />
+            <Route path="/games" component={QuizGamesContainer} />
             <Route path="/jobs" component={JobsContainer} />
           </Switch> 
         </div>    

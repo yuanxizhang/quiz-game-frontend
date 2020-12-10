@@ -3,7 +3,7 @@ import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import TestDataService from "../services/TestDataService";
 import Questions from '../components/questions/Questions' 
 
-const GamesContainer = () => {
+const QuizGamesContainer = () => {
     const [subjects, setSubjects] = useState([]);
     const [questions, setQuestions] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -84,4 +84,4 @@ const GamesContainer = () => {
     
 }
 
-export default GamesContainer;
+export default QuizGamesContainer;

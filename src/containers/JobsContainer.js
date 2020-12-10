@@ -22,11 +22,11 @@ class JobsContainer extends Component {
 
     return(
       <Container>     
-        <Row className="header">
+        <Row className="search-section">
               <JobSearch onSearch={this.handleSearch} />
         </Row>
-        <Row className="main">      
-          <div className="card-grid">
+        <Row>      
+          <div className="main">
             {jobs}
           </div>
           <div className="loading">

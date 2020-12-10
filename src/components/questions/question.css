@@ -71,12 +71,12 @@
 }
 
 .correct{
-    background: #2daf1c;
+    background: darkgreen;
     color: whitesmoke;
 }
 
 .wrong{
-    background: #fe3636;
+    background: darkred;
     color: whitesmoke;
 }
 

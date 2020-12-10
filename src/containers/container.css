@@ -18,13 +18,14 @@ body {
 
 .main {
   position: absolute;
-  top: 0rem;
-  left: 3rem;
+  top: 8rem;
+  left: 0rem;
+  align-items: center;
 }
 
 .loading {
   position: absolute;
-  top: 6rem;
+  top: 8rem;
   left: 3rem;
   font-size: 2rem;
   text-align: center;
@@ -192,10 +193,10 @@ body {
   .search-section {
     position: absolute;
     top: 0.1rem;
-    left: 3rem;
+    left: 0rem;
     width: 100%;
-    margin: 1px auto;
-    background-color: #74BCAB;
+    margin: 0.5em auto;
+    background-color:  #748CAB;
   }
 
   .select-form {  

@@ -111,7 +111,7 @@ ul.nav li a {
 
 .select-form {
   position: absolute;
-  top: 0.5rem;
+  top: 0.2rem;
   width: 100vw;
   align-items: center;
   background-color: lightslategrey;
@@ -174,8 +174,8 @@ ul.nav li a {
 .card-grid {
   display: grid;
   position: absolute;
-  top: 6rem;
-  left: 6rem;
+  top: 3rem;
+  left: 3rem;
   align-items: center;
   grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
   gap: 1rem;

@@ -50,7 +50,7 @@ const JobSearch = (props) => {
           </Col>
           <Col>
             <Button variant="primary" type="submit" className="btn-search">
-              Search Jobs
+              Search
             </Button>
           </Col>
         </Row>
@@ -70,4 +70,5 @@ const JobSearch = (props) => {
     </div>
   );
 };
+
 export default JobSearch;

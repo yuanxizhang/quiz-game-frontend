@@ -2,7 +2,7 @@
 > A simple web application that helps new developers master programming skills and improve their chances of getting a developer job. The frontend is built with React and Redux, the backend is built with Ruby on Rails and PostgreSQL
 
 ## Demo
-[Quiz Game live demo](https://quiz-box.netlify.app/#/flashcards)
+[Quiz Game live demo](https://quiz-box.netlify.app/)
 ## Table of contents
 * [Problem](#Problem)
 * [Diagram](#Diagram)
@@ -61,7 +61,7 @@ npx create-react-app quiz-game-frontend
 ## Backend 
 
 To build an API only Rail app with PostgeAQL database:
-```ruby
+```
 rails new quiz-game-api --database=postgresql --api
 ```
 
@@ -72,4 +72,3 @@ gem 'rack-cors'
 
 * [Rails API backend live demo](http://online-quiz-api.herokuapp.com/api/v1/tests)
 * [Rails backend code on Github](https://github.com/yuanxizhang/quiz-game-api)
-

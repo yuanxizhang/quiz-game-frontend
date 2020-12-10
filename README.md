@@ -3,24 +3,25 @@
 
 ## Demo
 [Quiz Game live demo](https://quiz-box.netlify.app/#/flashcards)
-![screen shot](https://github.com/yuanxizhang/quiz-game-frontend/blob/master/public/img/sreenshot.png)
-
 ## Table of contents
 * [Problem](#Problem)
-* [Diagram](#React and Redux App Diagram)
+* [Diagram](#Diagram)
 * [Technologies](#Technologies)
 * [Features](#features)
 * [Setup](#Setup)
-* [Backend](#backend)
+* [Backend](#Backend)
 * [Frontend](#Frontend)
 ## Problem
 * Problem: New developers need simple tools to learn, to test their knowledge level, and to find a job
 * Solution: Use flashcards to learn, use quiz to test, use job search tool to get a developer job
-## React + Redux App Diagram with Router
+## Diagram 
 ![diagram](https://github.com/yuanxizhang/quiz-game-frontend/blob/master/public/img/diagram.png)
-*  The App component is a container with React Router. It has navbar that links to routes paths.
+
+*  The App component is a container with React Router. It has a navbar that links to routes paths.
 * The FlashcardsContainer and QuisGameContainer call TestDataService functions which use axios to make HTTP requests and receive responses.
-* The JobsContainer uses Redux-Thunk middleware to make an asynchronous web request to Github Jobs API in an action creator function 
+*  The FlashcardsContainer and QuisGameContainer use Hooks as its state management tool.
+*  The JobsContainer uses Redux-Thunk middleware to make an asynchronous web request to Github Jobs API in an action creator function 
+*  The action creators are connected to the Redux store using the connect function in conjunction with mapStatetoProps and mapDispatchToProps. 
 ## Technologies
 * React 16.13.1
 * Redux 4.0.5
@@ -57,9 +58,9 @@ Create a new React project:
 ```
 npx create-react-app quiz-game-frontend
 ```
-npm install react
-### Set Up the Store and Reducer and Action Creator
+
 ## Backend 
+
 To build an API only Rail app with PostgeAQL database:
 ```ruby
 rails new quiz-game-api --database=postgresql --api

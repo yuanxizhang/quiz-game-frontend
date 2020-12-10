@@ -20,7 +20,7 @@
 
 .question-text-holder button{
     color: white;
-    background: rgb(48, 48, 48);
+    background: #0D1321;
     padding: 12px 25px;
     border: none;
     font-weight: bold;
@@ -66,7 +66,7 @@
 }
 
 .question-option:hover span{
-    background: rgb(48, 48, 48);
+    background: #0D1321;
     color: whitesmoke;
 }
 

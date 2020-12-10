@@ -57,7 +57,7 @@ const Questions = ({ questions }) => {
       )}
     </div>
   ) : (
-    <p>loading...</p>
+    <h4>loading...</h4>
   );
 };
 

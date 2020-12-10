@@ -6,7 +6,6 @@ import { findSearchedJobs } from '../actions/findSearchedJobs'
 import Job from '../components/jobs/Job'
 import JobSearch from '../components/jobs/JobSearch';
 import "./container.css";
-import { findRenderedDOMComponentWithClass } from 'react-dom/test-utils'
 class JobsContainer extends Component {
 
   componentDidMount() {
@@ -18,7 +17,7 @@ class JobsContainer extends Component {
   };
 
   render() {
-    const jobs = this.props.jobs.map(job => <Job key={job.id} job={job} />);
+   const jobs = this.props.jobs.map(job => <Job key={job.id} job={job} />); 
 
     return(
       <Container>     

@@ -7,17 +7,20 @@
 
 ## Table of contents
 * [Problem](#Problem)
+* [Diagram](#React and Redux App Diagram)
 * [Technologies](#Technologies)
-* [Diagram](#React App Diagram with Axios and Router)
-* [Setup](#setup)
 * [Features](#features)
+* [Setup](#Setup)
 * [Backend](#backend)
 * [Frontend](#Frontend)
-* [Inspiration](#inspiration)
-
 ## Problem
 * Problem: New developers need simple tools to learn, to test their knowledge level, and to find a job
 * Solution: Use flashcards to learn, use quiz to test, use job search tool to get a developer job
+## React + Redux App Diagram with Router
+![diagram](https://github.com/yuanxizhang/quiz-game-frontend/blob/master/public/img/diagram.png)
+*  The App component is a container with React Router. It has navbar that links to routes paths.
+* The FlashcardsContainer and QuisGameContainer call TestDataService functions which use axios to make HTTP requests and receive responses.
+* The JobsContainer uses Redux-Thunk middleware to make an asynchronous web request to Github Jobs API in an action creator function 
 ## Technologies
 * React 16.13.1
 * Redux 4.0.5
@@ -25,8 +28,13 @@
 * PostgreSQL 12.3
 * Bootstrap 4.5.2
 * axios 0.21.0
-## React App Diagram with Axios and Router
-![diagram](https://github.com/yuanxizhang/quiz-game-frontend/blob/master/public/img/diagram.png)
+## Features
+* Option to practice with the flashcards before taking the quiz
+* Immediate feedback on the answer choice for each question
+* Quiz Progress tracking
+* View quiz result after completing the quiz 
+* Option to repeat quiz
+* Option to Search specific jobs using the job search form
 ## Setup
 Download [node.js](https://nodejs.org/en/download/) to run this app.
 
@@ -40,13 +48,6 @@ To build this application for production
 ```
 npm run build
 ```
-## Features
-* Option to practice with the flashcards before taking the quiz
-* Immediate feedback on the answer choice for each question
-* Quiz Progress tracking
-* View quiz result after completing the quiz 
-* Option to repeat quiz
-* Option to Search specific jobs using the job search form
 ## Frontend
 To build a React app, install create-react-app:
 ```
@@ -56,11 +57,19 @@ Create a new React project:
 ```
 npx create-react-app quiz-game-frontend
 ```
+npm install react
+### Set Up the Store and Reducer and Action Creator
 ## Backend 
-To build a REST API with with Ruby on Rails.
+To build an API only Rail app with PostgeAQL database:
 ```ruby
 rails new quiz-game-api --database=postgresql --api
 ```
-* [Rails API backend live demo on heroku](http://online-quiz-api.herokuapp.com/api/v1/tests)
+
+Add rack-cors gem to let the request call from cross domain. Add this line into Gemfile:
+```ruby
+gem 'rack-cors'
+```
+
+* [Rails API backend live demo](http://online-quiz-api.herokuapp.com/api/v1/tests)
 * [Rails backend code on Github](https://github.com/yuanxizhang/quiz-game-api)
 

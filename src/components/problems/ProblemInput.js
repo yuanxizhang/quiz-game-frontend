@@ -24,12 +24,12 @@ class ProblemsInput extends Component {
     return (
       <div>
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
-          <label>Enter the coding problem or challenge text: </label>
+          <label>Add your coding problem or challenge: </label>
           <textarea 
             id="text" 
             name="text" 
-            rows="10" 
-            cols="80"
+            rows="12" 
+            cols="64"
             value={this.state.text}
             onChange={(event) => this.handleOnChange(event)}>
 

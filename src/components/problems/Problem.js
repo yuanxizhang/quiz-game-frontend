@@ -1,21 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SolutionsContainer from '../../containers/SolutionsContainer'
 
-class Problem extends Component {
-
-  render() {
-    const { problem } = this.props;
+const Problem = (props) => {
+    const handleDeleteClick = () => {
+        this.props.deleteProblem(props.problem.id)
+    }
 
     return (
       <div>
         <li>
-          {problem.text}
-          <button onClick={() => this.props.deleteproblem(problem.id)}> X </button>
-          <SolutionsContainer problem={problem}/>
+          {props.problem.text}
+          <button onClick={handleDeleteClick}> X </button>
+          <SolutionsContainer problem={props.problem}/>
         </li>
       </div>
     );
-  }
 };
 
 export default Problem;

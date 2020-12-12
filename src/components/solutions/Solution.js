@@ -1,22 +1,18 @@
-import React, { Component } from 'react';
-class Solution extends Component {
-  handleOnClick = () =>{
-    this.props.deleteSolution(this.props.solution.id)
-  }
-  
-  render() {
-    const { solution } = this.props
+import React from 'react';
+
+const Solution = (props) => {
+    const handleOnClick = () =>{
+        props.deleteSolution(props.solution.id)
+    }
 
     return (
       <div>
         <li>
-          {solution.text}
+          {props.solution.text}
         </li>
-        <button onClick={this.handleOnClick}> X </button>
+        <button onClick={handleOnClick}> X </button>
       </div>
     );
-  }
-
 };
 
 export default Solution;

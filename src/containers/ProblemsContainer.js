@@ -15,10 +15,12 @@ class ProblemsContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({ problems: state.problems })
+const mapStateToProps = (state) => ({ problems: state.problems })
 
-const mapDispatchToProps = dispatch => ({
-  addProblem: text => dispatch({type: 'ADD_PROBLEM', text}),
-  deleteProblem: id => dispatch({type: 'DELETE_PROBLEM', id})
-})
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addProblem: problemData => dispatch({type: "ADD_PROBLEM", text: problemData}),
+    deleteProblem: problemId => dispatch({type: "DELETE_PROBLEM", id: problemId})
+  }
+}
 export default connect(mapStateToProps, mapDispatchToProps)(ProblemsContainer)

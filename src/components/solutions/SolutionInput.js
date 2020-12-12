@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Solutions from './Solutions';
-
 class SolutionInput extends Component {
   state = {
     text: ''
@@ -14,7 +12,7 @@ class SolutionInput extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.addSolution({text: this.state.text, restaurantId: this.props.restaurantId });
+    this.props.addSolution({text: this.state.text, problemId: this.props.problemId });
     this.setState({
       text: '',
     });

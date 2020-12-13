@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
 import ProblemInput from '../components/problems/ProblemInput'
 import Problems from '../components/problems/Problems'
+import { getProblems, addProblem, deleteProblem } from '../actions/problemActions'; 
 import { connect } from 'react-redux'
 
 class ProblemsContainer extends Component {
+  componentDidMount() {
+    console.log(this.props);
+    this.props.getProblems();
+  }
 
   render() {
     return (
@@ -15,12 +20,14 @@ class ProblemsContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ problems: state.problems })
+const mapStateToProps = (state) => ({ problems: state.problems, loading: state.loading })
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addProblem: problemData => dispatch({type: "ADD_PROBLEM", text: problemData}),
-    deleteProblem: problemId => dispatch({type: "DELETE_PROBLEM", id: problemId})
+    getProblems: () => dispatch(getProblems()),
+    addProblem: (problem) => dispatch(addProblem(problem)),
+    // editProblem: (problemId) => dispatch(editProblem(problemId)),
+    deleteProblem: problemId => dispatch(deleteProblem(problemId))
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ProblemsContainer)

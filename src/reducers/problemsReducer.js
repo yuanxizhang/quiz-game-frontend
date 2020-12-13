@@ -1,13 +1,27 @@
 import cuid from 'cuid';
-export const cuidFn = cuid;
 
 const problemsReducer = (state = {
     problems: [],
     solutions: [],
+    oading: false
   }, action) => {
     switch(action.type){
+        case 'LOADING_PROBLEMS':
+            return {
+            ...state,
+            problems: [...state.problems],
+            loading: true
+            }
+            
+        case 'GET_PROBLEMS':
+            return {
+            ...state,
+            problems: action.problems,
+            loading: false
+            }
+
         case 'ADD_PROBLEM':
-            const problem = {text: action.text, id: cuidFn()};
+            const problem = {text: action.text, id: cuid()};
             return{
                 ...state,
                 problems: [...state.problems, problem]
@@ -19,7 +33,7 @@ const problemsReducer = (state = {
 
         case 'ADD_SOLUTION':
 
-            const solution = { text: action.solution.text, problemId: action.solution.problemId, id: cuidFn() };
+            const solution = { text: action.solution.text, problemId: action.solution.problemId, id: cuid() };
             return { ...state,
               solutions: [...state.solutions, solution]
             }

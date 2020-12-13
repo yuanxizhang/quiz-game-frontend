@@ -7,9 +7,9 @@ const Solution = (props) => {
 
     return (
       <div>
-        <li>
-          {props.solution.text}
-        </li>
+        
+        {props.solution.text}
+        
         <button onClick={handleOnClick}> X </button>
       </div>
     );

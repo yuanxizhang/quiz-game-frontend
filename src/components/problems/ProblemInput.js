@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 class ProblemsInput extends Component {
 
   state = {
@@ -13,8 +12,8 @@ class ProblemsInput extends Component {
   }
 
   handleOnSubmit(event) {
-    event.preventDefault();
-    this.props.addProblems(this.state.text);
+    event.preventDefault();  
+    this.props.addProblem({text: this.state.text});
     this.setState({
       text: '',
     });
@@ -25,17 +24,17 @@ class ProblemsInput extends Component {
       <div>
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
           <label>Add your coding problem or challenge: </label>
+          <br></br>
           <textarea 
             id="text" 
             name="text" 
-            rows="12" 
-            cols="64"
+            rows="5" 
+            cols="60"
             value={this.state.text}
             onChange={(event) => this.handleOnChange(event)}>
-
           </textarea>
-          
-          <input type="submit" value="Add"/>
+          <br></br>
+          <input type="submit" value="Submit"/>
         </form>
       </div>
     );

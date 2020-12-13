@@ -27,8 +27,16 @@ const problemsReducer = (state = {
                 problems: [...state.problems, problem]
             }
 
+        case 'EDIT_PROBLEM':    
+            return {    
+                ...state,    
+                problems: state.problems.map(    
+                    (content, i) => content.id === action.id ? {...content, text : action.text }    
+                                    : content)    
+            }; 
+
         case 'DELETE_PROBLEM':
-            const problems = state.problems.filter(problem => problem.id !== action.id);
+            const problems = state.problems.filter(problem => problem.id !== action.payload.id);
             return { ...state, problems}
 
         case 'ADD_SOLUTION':

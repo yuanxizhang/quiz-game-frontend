@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
-import TestDataService from "../services/TestDataService";
+import DataService from "../services/DataService";
 import FlashcardList from '../components/flashcards/FlashcardList' 
 import "./container.css";
 
@@ -15,8 +15,8 @@ const FlashcardsContainer = () => {
         let unmounted = false;
         setLoading(true);
 
-        TestDataService
-        .getAll()
+        DataService
+        .getTests()
         .then(resp => {
             if (!unmounted) {
                 setSubjects(resp.data);
@@ -36,8 +36,8 @@ const FlashcardsContainer = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        TestDataService
-        .getAll()
+        DataService
+        .getTests()
         .then((resp) => {
             console.log(resp.data.filter(s => s.name === subjectEl.current.value)[0]);
             setFlashcards(resp.data.filter(s => s.name === subjectEl.current.value)[0].questions);

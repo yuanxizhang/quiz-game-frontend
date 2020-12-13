@@ -1,4 +1,4 @@
-const axios = require('axios').default;
+import DataService from "../services/DataService";
 
 const BASE_URL = 'http://localhost:5000/api/v1/problems';
 
@@ -12,29 +12,24 @@ export function getProblems() {
       dispatch({ type: 'LOADING_PROBLEMS' });
       fetch(BASE_URL)
         .then(response => response.json())
-        .then(responseJSON => dispatch({ type: 'ADD_PROBLEMS', jobs: responseJSON }))
+        .then(responseJSON => dispatch({ type: 'ADD_PROBLEMS', problems: responseJSON }))
         .catch(error => console.log(error));
       };
 };  
   
 export function addProblem(newProblem) {  
     return (dispatch) => {  
-        fetch(BASE_URL, {
-            method: 'POST',
-            headers: headers,
-            body: JSON.stringify(newProblem)
-          })
-        .then(resp => resp.json())
+        DataService
+        .createProblem(newProblem)
         .then(data => dispatch({ type: 'ADD_PROBLEM', payload: newProblem })) 
         .catch(error => console.log(error));       
     }  
 };  
   
 // export function editProblem(problemId) {  
-//     return (dispatch) => {  
-//         return dispatch({  
-//             axios
-//             .put(`BASE_URL/${problemId}`, updatedProblem)
+//     return (dispatch) => {           
+//             DataService
+//             .updateProblem(problemId)
 //             .then(resp => dispatch({ type: 'EDIT_PROBLEM', payload: problemId})) 
 //             .catch(error => console.log(error));       
 //         });  
@@ -42,16 +37,11 @@ export function addProblem(newProblem) {
 // };  
   
 export function deleteProblem(problemId) {  
-    return dispatch => {  
-        return dispatch({  
-            fetch(`{BASE_URL}/{problemId}`, {
-                method: 'DELETE',
-                headers: headers,
-                body: JSON.stringify(obj)
-              })
-            .then(resp => resp.json())
+    return (dispatch) => {  
+            DataService
+            .deleteProblem(problemId)
             .then( data => dispatch({ type: 'DELETE_PROBLEM', payload: problemId})) 
             .catch(error => console.log(error));   
-        });  
-    }  
+    };  
+     
 }; 

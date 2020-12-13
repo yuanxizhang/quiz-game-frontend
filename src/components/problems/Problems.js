@@ -1,11 +1,11 @@
 import React from 'react';
 import Problem from './Problem'
 
-const Problems = (props) => {
+const Problems = ({ problems, deleteProblem }) => {
   let problemList;
-  if (props.problems) {
-    problemList = props.problems.map(problem => {
-      return <Problem key={problem.id} deleteProblem={props.deleteProblem} problem={problem} />
+  if (problems) {
+    problemList = problems.map(problem => {
+      return <Problem key={problem.id} deleteProblem={deleteProblem} problem={problem} />
     })
   } else {
     problemList = "Loading...";

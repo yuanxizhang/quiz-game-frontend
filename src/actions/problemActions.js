@@ -19,15 +19,14 @@ export function addProblem(pro) {
     }  
 };  
   
-// export function editProblem(problemId) {  
-//     return (dispatch) => {           
-//             DataService
-//             .updateProblem(problemId)
-//             .then(resp => dispatch({ type: 'EDIT_PROBLEM', payload: problemId})) 
-//             .catch(error => console.log(error));       
-//         });  
-//     }  
-// };  
+export function editProblem(problemId) {  
+    return (dispatch) => {           
+            DataService
+            .updateProblem(problemId)
+            .then(resp => dispatch({ type: 'EDIT_PROBLEM', payload: problemId})) 
+            .catch(error => console.log(error));         
+    } 
+};  
   
 export function deleteProblem(problemId) {  
     return (dispatch) => {  

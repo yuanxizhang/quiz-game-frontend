@@ -33,7 +33,7 @@ const ProblemsContainer = () => {
   return (
     <Container>     
      <Row className="search-section">
-              <AddProblem/>
+        <AddProblem/>
     </Row>
     <div className="list">
     <div className="list row">
@@ -58,7 +58,7 @@ const ProblemsContainer = () => {
         
         {currentProblem ? (
           <div>
-            <h4>Problem</h4>
+            <h4>Problem Detail</h4>
             <div>
               <label>
                 <strong>Question:</strong>

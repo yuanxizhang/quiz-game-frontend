@@ -31,7 +31,7 @@ const problemsReducer = (state = {
             return {    
                 ...state,    
                 problems: state.problems.map(    
-                    (content, i) => content.id === action.id ? {...content, text : action.text }    
+                    (content, i) => content.id === action.payload.id ? {...content, text : action.payload.text }    
                                     : content)    
             }; 
 

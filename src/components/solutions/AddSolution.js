@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-class SolutionInput extends Component {
+
+class AddSolution extends Component {
   state = {
     text: ''
   }
@@ -38,4 +39,4 @@ class SolutionInput extends Component {
   }
 };
 
-export default SolutionInput;
+export default AddSolution;

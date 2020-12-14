@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import SolutionInput from '../components/solutions/SolutionInput'
+import SolutionInput from '../components/solutions/AddSolution'
 import Solutions from '../components/solutions/Solutions'
 import {connect} from 'react-redux'
 class SolutionsContainer extends Component {

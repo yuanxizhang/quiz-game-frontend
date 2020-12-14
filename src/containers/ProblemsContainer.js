@@ -65,6 +65,12 @@ const ProblemsContainer = () => {
               </label>{" "}
               {currentProblem.text}
             </div>
+            <Link
+              to={"/problems/" + currentProblem.id}
+              className="badge badge-warning"
+            >
+              Edit
+            </Link>
             <div>
               <label>
                 <strong>Solutions:</strong>

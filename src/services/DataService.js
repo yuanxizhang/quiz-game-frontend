@@ -21,7 +21,7 @@ const createProblem = (data) => {
   return http.post("/problems", data);
 };
 
-const createProblemSolution = (id, data) => {
+const createProblemSolution = (data) => {
   return http.post("/problems/:id/solutions", data);
 };
 
@@ -33,12 +33,20 @@ const updateProblem = (id, data) => {
   return http.put(`/problems/${id}`, data);
 };
 
+const updateSolution = (id, data) => {
+  return http.put(`/solutions/${id}`, data);
+};
+
 const deleteTest = (id) => {
   return http.delete(`/tests/${id}`);
 };
 
 const deleteProblem = (id) => {
   return http.delete(`problems/${id}`);
+};
+
+const deleteSolution = (id) => {
+  return http.delete(`solutions/${id}`);
 };
 
 const deleteAllTests = () => {
@@ -74,8 +82,10 @@ export default {
   createProblemSolution,
   updateTest,
   updateProblem,
+  updateSolution,
   deleteTest,
   deleteProblem,
+  deleteSolution,
   deleteAllTests,
   deleteAllProblems,
   getTestById,

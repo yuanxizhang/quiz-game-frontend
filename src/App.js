@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import FlashcardsContainer from './containers/FlashcardsContainer';
 import QuizGamesContainer from './containers/QuizGamesContainer';
 import ProblemsContainer from './containers/ProblemsContainer';
+import Problem from './components/problems/Problem';
 import JobsContainer from './containers/JobsContainer';
 import history from './services/history';
 import Home from './pages/Home';
@@ -32,6 +33,7 @@ const App = () => {
             <Route path="/flashcards" component={FlashcardsContainer} />
             <Route path="/games" component={QuizGamesContainer} />
             <Route path="/problems" component={ProblemsContainer} />
+            <Route path="/problems/:id" component={Problem} />
             <Route path="/jobs" component={JobsContainer} />
           </Switch> 
         </div>    

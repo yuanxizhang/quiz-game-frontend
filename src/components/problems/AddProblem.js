@@ -15,7 +15,7 @@ const AddProblem = () => {
   };
 
   const handleSubmit = () => {
-    var data = {
+    let data = {
       text: problem.text
     };
 

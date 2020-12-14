@@ -21,7 +21,7 @@ const createProblem = (data) => {
   return http.post("/problems", data);
 };
 
-const createProblemSolution = (data) => {
+const createSolution = (data) => {
   return http.post("/problems/:id/solutions", data);
 };
 
@@ -79,7 +79,7 @@ export default {
   getSolutionsByProblemId,
   createTest,
   createProblem,
-  createProblemSolution,
+  createSolution,
   updateTest,
   updateProblem,
   updateSolution,

@@ -3,6 +3,7 @@ import { Container, Row } from 'react-bootstrap';
 import DataService from "../services/DataService";
 import Solution from '../components/solutions/Solution';
 import AddProblem from '../components/problems/AddProblem';
+import AddSolution from '../components/solutions/AddSolution';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const ProblemsContainer = () => {
@@ -65,19 +66,14 @@ const ProblemsContainer = () => {
               </label>{" "}
               {currentProblem.text}
             </div>
-            <Link
-              to={"/problems/" + currentProblem.id}
-              className="badge badge-warning"
-            >
-              Edit
-            </Link>
+            <AddSolution problemId={currentProblem.id}/>
             <div>
               <label>
                 <strong>Solutions:</strong>
               </label>{" "}
               {currentProblem.solutions && currentProblem.solutions.map( solution => <Solution key={solution.id} solution={solution} />)}
             </div>
-            
+      
           </div>
         ) : (
           <div>

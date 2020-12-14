@@ -1,16 +1,26 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
+import DataService from "../../services/DataService";
 class Solution extends Component {
-	handleClick = () => { this.props.onClick(this.props.solution.id) }
-
-	handleDelete = () => { this.props.onDelete(this.props.solution.id) }
+	
+  deleteSolution = () => {
+    DataService.deleteSolution(this.props.solution.id)
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
 
 	render () {
 		return(
 		  <div className="tile">
-		  	<span className="deleteButton" onClick={this.handleDelete}>x</span>
-		    <h4 onClick={this.handleClick}>{this.props.solution.text}</h4>
-		    <p onClick={this.handleClick}>{this.props.solution.language}</p>
+		  	
+        <h6>language: {this.props.solution.language}</h6>
+		    <p>Code: {this.props.solution.text}</p>
+		    <button className="badge badge-danger mr-2" onClick={this.deleteSolution}>
+            Delete
+        </button>
 		  </div>
 		)
 	}

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import DataService from "../../services/DataService";
 
 
-class SolutionForm extends Component {
+class EditSolution extends Component {
 	
 	state = {
       id:   this.props.solution.id,
@@ -33,15 +33,15 @@ class SolutionForm extends Component {
     return (
       <div className="tile">
       	<form onBlur={this.handleBlur} >
-					<input className='input' type="text" name="text" placeholder='Enter a Title'
-            value={this.state.text} onChange={this.handleInput}
+					<input className='input' type="text" name="language" placeholder='Enter a Title'
+            value={this.state.language} onChange={this.handleInput}
             ref={this.props.textRef} />
-					<textarea className='input' name="language" placeholder='Describe your solution'
-            value={this.state.language} onChange={this.handleInput}></textarea>
+					<textarea className='input' name="text" placeholder='Describe your solution'
+            value={this.state.text} onChange={this.handleInput}></textarea>
       	</form>
       </div>
     );
   }
 }
 
-export default SolutionForm
+export default EditSolution

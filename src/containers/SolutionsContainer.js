@@ -6,8 +6,9 @@ import update from 'immutability-helper'
 import Notification from '../components/solutions/Notification'
 
 class SolutionsContainer extends Component {
-    
+
   state = {
+      problem: this.props.problem,
       solutions: [],
       editingSolutionId: null,
       notification: '',
@@ -24,7 +25,7 @@ class SolutionsContainer extends Component {
   }
 
   addNewSolution = () => {
-    DataService.createSolution({solution: {text: '', Language: ''}})
+    DataService.createSolution({solution: {text: '', Language: '', problemm_id: this.props.problem.id}})
     .then(response => {
       const solutions = update(this.state.solutions, { $splice: [[0, 0, response.data]]})
       this.setState({solutions: solutions, editingSolutionId: response.data.id})

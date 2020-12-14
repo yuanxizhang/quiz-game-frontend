@@ -16,8 +16,8 @@ class Solution extends Component {
 		return(
 		  <div className="card">
 		  	
-        <h6>language: {this.props.solution.language}</h6>
-		    <p class="card-text">Code: {this.props.solution.text}</p>
+        <h6>Language: {this.props.solution.language}</h6>
+		    <p class="card-text">{this.props.solution.text}</p>
 		    <button 
           className="badge badge-pill badge-danger" 
           onClick={this.deleteSolution}>

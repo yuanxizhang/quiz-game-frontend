@@ -66,7 +66,7 @@ const ProblemsContainer = () => {
               </label>{" "}
               {currentProblem.text}
             </div>
-            <AddSolution problemId={currentProblem.id}/>
+            
             <div>
               <label>
                 <strong>Solutions:</strong>

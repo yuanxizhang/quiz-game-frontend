@@ -190,6 +190,17 @@ body {
     margin-top: 0;
   }
 
+  .list {
+    position: relative;
+    top: 0rem;
+  }
+
+  .list-group {
+    position: absolute;
+    top: 2rem;
+    left: 0rem;
+  }
+
   .search-section {
     position: absolute;
     top: 0.1rem;

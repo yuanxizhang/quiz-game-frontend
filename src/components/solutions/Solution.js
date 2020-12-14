@@ -7,8 +7,8 @@ const Solution = (props) => {
 
     return (
       <div>
-        
-        {props.solution.text}
+        <p>Language: {props.solution.language}</p>
+        <p>Solution: {props.solution.text}</p>
         
         <button onClick={handleOnClick}> X </button>
       </div>

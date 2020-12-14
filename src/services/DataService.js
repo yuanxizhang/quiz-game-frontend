@@ -29,19 +29,31 @@ const deleteTest = (id) => {
 };
 
 const deleteProblem = (id) => {
-  return http.delete(`probles/${id}`);
+  return http.delete(`problems/${id}`);
 };
 
 const deleteAllTests = () => {
   return http.delete(`/tests`);
 };
 
+const deleteAllProblems = () => {
+  return http.delete(`/problems`);
+};
+
 const getTestById = (id) => {
   return http.get(`/tests/${id}`);
 };
 
+const getProblem = (id) => {
+  return http.get(`/problems/${id}`);
+};
+
 const findTestByName = (name) => {
   return http.get(`/tests?name=${name}`);
+};
+
+const findSearchedProblems = (term) => {
+  return http.get(`/problems?text=${term}`);
 };
 
 export default {
@@ -54,6 +66,9 @@ export default {
   deleteTest,
   deleteProblem,
   deleteAllTests,
+  deleteAllProblems,
   getTestById,
-  findTestByName
+  getProblem,
+  findTestByName,
+  findSearchedProblems
 };

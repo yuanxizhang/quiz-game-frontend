@@ -39,7 +39,7 @@ const FlashcardsContainer = () => {
         DataService
         .getTests()
         .then((resp) => {
-            console.log(resp.data.filter(s => s.name === subjectEl.current.value)[0]);
+            // console.log(resp.data.filter(s => s.name === subjectEl.current.value)[0]);
             setFlashcards(resp.data.filter(s => s.name === subjectEl.current.value)[0].questions);
         })
         .catch((error) =>  {

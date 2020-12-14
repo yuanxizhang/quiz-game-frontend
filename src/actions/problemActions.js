@@ -1,27 +1,20 @@
 import DataService from "../services/DataService";
 
-const BASE_URL = 'http://localhost:5000/api/v1/problems';
-
-const headers = {
-    'Content-Type': 'application/json',
-    Accept: 'application/json'
-  };
-
 export function getProblems() {     
     return (dispatch) => {
       dispatch({ type: 'LOADING_PROBLEMS' });
-      fetch(BASE_URL)
-        .then(response => response.json())
-        .then(responseJSON => dispatch({ type: 'ADD_PROBLEMS', problems: responseJSON }))
+      DataService
+        .getProblems()
+        .then(jsondata => dispatch({ type: 'ADD_PROBLEMS', problems: jsondata}))
         .catch(error => console.log(error));
       };
 };  
   
-export function addProblem(newProblem) {  
+export function addProblem(pro) {  
     return (dispatch) => {  
         DataService
-        .createProblem(newProblem)
-        .then(data => dispatch({ type: 'ADD_PROBLEM', payload: newProblem })) 
+        .createProblem(pro)
+        .then(data => dispatch({ type: 'ADD_PROBLEM', payload: pro })) 
         .catch(error => console.log(error));       
     }  
 };  

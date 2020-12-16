@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DataService from "../../services/DataService";
 
-const AddSolution = () => {
+const AddSolution = (props) => {
   const initialSolutionState = {
     id: null,
     language: '',
@@ -23,7 +23,7 @@ const AddSolution = () => {
         language: solution.language
     };
     
-    let pid =this.props.problemId;
+    let pid = props.problemId;
     DataService.createSolution(pid, data)
       .then(response => {
         setSolution({
@@ -55,7 +55,7 @@ const AddSolution = () => {
           </button>
         </div>
       ) : (
-        <form className="form-group">
+        <form className="form-group" onSubmit={handleSubmit}>
             <h5>Add a new solution</h5>
             <label htmlFor="language"> language:</label>
             <input className='input' type="text" name="language" placeholder='Enter a language'
@@ -64,7 +64,7 @@ const AddSolution = () => {
             <label htmlFor="text">Solution:</label>
             <textarea className='input' name="text" placeholder='Enter your solution'
                 value={solution.text} onChange={handleInputChange}></textarea>
-            <button onClick={handleSubmit} className="btn btn-primary">
+            <button className="btn btn-primary">
                 Add Solution
             </button>
         </form>

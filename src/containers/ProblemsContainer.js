@@ -54,6 +54,13 @@ const ProblemsContainer = () => {
     setSearchTerm(event.target.value)
   }
 
+  // const handleStateChange(value){
+  //   event.preventDefault();
+  //   let contacts = this.state.contacts;
+  //   contacts.push(value);
+  //   this.setState({ contacts : contacts })
+  // }
+
   return (
     <div>
       <Row>
@@ -112,7 +119,7 @@ const ProblemsContainer = () => {
                     </label>{" "}
                     {currentProblem.text}
                   </div>
-                  <div>
+                  <div className="new-solution-form">
                     <AddSolution problemId = {currentProblem.id}/>
                   </div>
                   <div>

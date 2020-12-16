@@ -1,61 +1,76 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import DataService from "../../services/DataService";
 
-class AddSolution extends Component {
-  state = {
+const AddSolution = () => {
+  const initialSolutionState = {
     id: null,
     language: '',
     text: ''
   }
 
-  handleInputChange = (event) => {
+  const [solution, setSolution] = useState(initialSolutionState);
+  const [submitted, setSubmitted] = useState(false);  
+
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
-    this.setState({
-      [name]: value,
-    });
+    setSolution({ ...solution, [name]: value });
   }
 
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     let data = {
-        text: this.state.text,
-        language: this.state.language,
-        problem_id: this.props.problemId
+        text: solution.text,
+        language: solution.language
     };
-
-    DataService.createProblem(data)
+    
+    let pid =this.props.problemId;
+    DataService.createSolution(pid, data)
       .then(response => {
-        this.setState({
+        setSolution({
           id: response.data.id,
           text: response.data.text,
           language: response.data.language
         });
         console.log(response.data);
+        setSubmitted(true);
       })
       .catch(e => {
         console.log(e);
-      });
+      });   
+  };
+
+  const newSolution = () => {
+    setSolution(initialSolutionState);
+    setSubmitted(false);
   };
     
-  render() {
-    return (
-      <div>
-        <form className="form-group" onSubmit={this.handleOnSubmit} >
+
+  return (
+    <div>
+      {submitted ? (
+        <div>
+          <h6>You submitted successfully!</h6>
+          <button className="btn btn-success" onClick={newSolution}>
+            Add Solution
+          </button>
+        </div>
+      ) : (
+        <form className="form-group">
             <h5>Add a new solution</h5>
             <label htmlFor="language"> language:</label>
             <input className='input' type="text" name="language" placeholder='Enter a language'
-                value={this.state.language} onChange={this.handleInputChange}
-                ref={this.props.textRef} />
+                value={solution.language} onChange={handleInputChange} />
+          
             <label htmlFor="text">Solution:</label>
             <textarea className='input' name="text" placeholder='Enter your solution'
-                value={this.state.text} onChange={this.handleInputChange}></textarea>
-            <button onClick={this.handleSubmit} className="btn btn-primary">
-                Submit
+                value={solution.text} onChange={handleInputChange}></textarea>
+            <button onClick={handleSubmit} className="btn btn-primary">
+                Add Solution
             </button>
         </form>
+      )}
       </div>
     );
-  }
 };
 
 export default AddSolution;

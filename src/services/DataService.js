@@ -9,7 +9,7 @@ const getProblems = () => {
 };
 
 const getSolutionsByProblemId = (id) => {
-  return http.get("/probelms/:id/solutions");
+  return http.get(`/probelms/${id}/solutions`);
 };
 
 const createTest = (data) => {
@@ -21,8 +21,8 @@ const createProblem = (data) => {
   return http.post("/problems", data);
 };
 
-const createSolution = (data) => {
-  return http.post("/problems/:id/solutions", data);
+const createSolution = (id, data) => {
+  return http.post(`/problems/${id}/solutions`, data);
 };
 
 const updateTest = (id, data) => {
@@ -65,12 +65,12 @@ const getProblem = (id) => {
   return http.get(`/problems/${id}`);
 };
 
-const findTestByName = (name) => {
-  return http.get(`/tests?name=${name}`);
+const findTestByName = (testName) => {
+  return http.get(`/tests?name=${testName}`);
 };
 
-const findSearchedProblems = (term) => {
-  return http.get(`/problems?text=${term}`);
+const getSearchedProblems = (query) => {
+  return http.get(`/problems?text=${query}`);
 };
 
 export default {
@@ -91,5 +91,5 @@ export default {
   getTestById,
   getProblem,
   findTestByName,
-  findSearchedProblems
+  getSearchedProblems
 };

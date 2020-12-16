@@ -43,14 +43,15 @@ const AddProblem = () => {
       {submitted ? (
         <div>
           <h4>You submitted successfully!</h4>
-          <button className="btn btn-success" onClick={newProblem}>
-            Add
+          <button className="btn btn-flat" onClick={newProblem}>
+            Add Problem
           </button>
         </div>
       ) : (
         <div>
-          <div className="form-group">
-            <label htmlFor="text">Question:</label>
+          <form className="submit-form">
+        
+            <label htmlFor="text">New coding problem: </label>
             <input
               type="text"
               className="form-control"
@@ -60,24 +61,13 @@ const AddProblem = () => {
               onChange={handleInputChange}
               name="text"
             />
-          </div>
+               
+            <button onClick={handleSubmit} className="btn-flat">
+              Add
+            </button>
+          </form>
 
-          {/* <div className="form-group">
-            <label htmlFor="description">Description</label>
-            <input
-              type="text"
-              className="form-control"
-              id="description"
-              required
-              value={problem.description}
-              onChange={handleInputChange}
-              name="description"
-            />
-          </div> */}
-
-          <button onClick={handleSubmit} className="btn btn-success">
-            Submit
-          </button>
+          
         </div>
       )}
     </div>

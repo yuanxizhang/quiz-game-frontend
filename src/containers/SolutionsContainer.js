@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DataService from "../services/DataService";
 import Solution from '../components/solutions/Solution';
-import SolutionForm from '../components/solutions/SolutionForm';
+import SolutionForm from '../components/solutions/EditSolution';
 import update from 'immutability-helper'
 import Notification from '../components/solutions/Notification'
 

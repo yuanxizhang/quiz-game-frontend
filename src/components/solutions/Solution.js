@@ -16,7 +16,7 @@ class Solution extends Component {
 		return(
 		  <div className="card code">
         <h6>Language: {this.props.solution.language}</h6>
-		    <p className="card-text">{this.props.solution.text}</p>
+		    <pre>{`${this.props.solution.text}`}</pre>
 		  </div>
 		)
 	}

@@ -127,7 +127,7 @@ body {
     border-radius: .25rem;
     font-size: 1rem;
     margin: 0.5rem;
-    width: 6rem;
+    width: 8rem;
   }
 
   .card-grid {
@@ -198,7 +198,7 @@ body {
 
   .list {
     position: absolute;
-    top: 12rem;
+    top: 13rem;
   }
 
   .list-group {
@@ -219,7 +219,7 @@ body {
 
   .new-problem-form {
     position: absolute;
-    top: 3.6rem;
+    top: 3.3rem;
     left: 0rem;
     width: 100%;  
     align-items: left;

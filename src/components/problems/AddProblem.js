@@ -14,8 +14,8 @@ const AddProblem = () => {
     setProblem({ ...problem, [name]: value });
   };
 
-  const handleSubmit = () => {
-    let data = {
+  const saveProblem = () => {
+    var data = {
       text: problem.text
     };
 
@@ -26,11 +26,12 @@ const AddProblem = () => {
           text: response.data.text
         });
         setSubmitted(true);
-        console.log(response.data);
+        console.log("New problem added:",response.data);
       })
       .catch(e => {
         console.log(e);
       });
+
   };
 
   const newProblem = () => {
@@ -42,16 +43,15 @@ const AddProblem = () => {
     <div className="submit-form">
       {submitted ? (
         <div>
-          <h4>You submitted successfully!</h4>
-          <button className="btn btn-flat" onClick={newProblem}>
+          <h4>Your problem was submitted successfully!</h4>
+          <button className="btn btn-success" onClick={newProblem}>
             Add Problem
           </button>
         </div>
       ) : (
         <div>
-          <form className="submit-form">
-        
-            <label htmlFor="text">New coding problem: </label>
+          <div className="form-group new-probem-form">
+            <label htmlFor="text">New problem: </label>
             <input
               type="text"
               className="form-control"
@@ -61,13 +61,11 @@ const AddProblem = () => {
               onChange={handleInputChange}
               name="text"
             />
-               
-            <button onClick={handleSubmit} className="btn-flat">
-              Add
-            </button>
-          </form>
+          </div>
 
-          
+          <button onClick={saveProblem} className="btn-flat">
+            Add Problem
+          </button>
         </div>
       )}
     </div>

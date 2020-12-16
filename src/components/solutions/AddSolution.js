@@ -31,7 +31,7 @@ const AddSolution = (props) => {
           text: response.data.text,
           language: response.data.language
         });
-        console.log(response.data);
+        console.log("New solution added:", response.data);
         setSubmitted(true);
       })
       .catch(e => {
@@ -49,7 +49,7 @@ const AddSolution = (props) => {
     <div>
       {submitted ? (
         <div>
-          <h6>You submitted successfully!</h6>
+          <h6>Solution submitted successfully!</h6>
           <button className="btn btn-success" onClick={newSolution}>
             Add Solution
           </button>

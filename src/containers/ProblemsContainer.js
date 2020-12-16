@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Form, Button, Row, Col } from 'react-bootstrap';
+import { Form, Button, Row, Col } from 'react-bootstrap';
 import DataService from "../services/DataService";
 import Solution from '../components/solutions/Solution';
 import AddSolution from '../components/solutions/AddSolution';
@@ -54,13 +54,6 @@ const ProblemsContainer = () => {
     setSearchTerm(event.target.value)
   }
 
-  // const handleStateChange(value){
-  //   event.preventDefault();
-  //   let contacts = this.state.contacts;
-  //   contacts.push(value);
-  //   this.setState({ contacts : contacts })
-  // }
-
   return (
     <div>
       <Row>
@@ -73,7 +66,7 @@ const ProblemsContainer = () => {
                 </Form.Group> 
               </Col>
               <Col>
-                <Button type="submit" className="btn-search" size="sm">Find Problems</Button>
+                <Button type="submit" className="btn-search" size="sm">Search Problems</Button>
               </Col>
             </Row>    
           </Form>
@@ -119,16 +112,16 @@ const ProblemsContainer = () => {
                     </label>{" "}
                     {currentProblem.text}
                   </div>
-                  <div className="new-solution-form">
-                    <AddSolution problemId = {currentProblem.id}/>
-                  </div>
+                  
                   <div>
                     <label>
                       <strong>Solutions:</strong>
                     </label>{" "}
                     {currentProblem.solutions && currentProblem.solutions.map( solution => <Solution key={solution.id} solution={solution} />)}
                   </div>
-            
+                  <div className="new-solution-form">
+                    <AddSolution problemId = {currentProblem.id} />
+                  </div>
                 </div>
               ) : (
                 <div>

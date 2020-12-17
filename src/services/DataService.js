@@ -34,7 +34,7 @@ const updateProblem = (id, data) => {
 };
 
 const updateSolution = (id, data) => {
-  return http.put(`/solutions/${id}`, data);
+  return http.put(`/problems/${id}/solutions`, data);
 };
 
 const deleteTest = (id) => {

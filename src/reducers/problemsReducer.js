@@ -3,7 +3,7 @@ import cuid from 'cuid';
 const problemsReducer = (state = {
     problems: [],
     solutions: [],
-    oading: false
+    loading: false
   }, action) => {
     switch(action.type){
         case 'LOADING_PROBLEMS':

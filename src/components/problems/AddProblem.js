@@ -15,7 +15,7 @@ const AddProblem = () => {
   };
 
   const saveProblem = () => {
-    var data = {
+    let data = {
       text: problem.text
     };
 

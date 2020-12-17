@@ -12,13 +12,12 @@ class EditSolution extends Component {
 	
 
   handleInput = (e) => {
-    this.props.resetNotification()
     this.setState({[e.target.name]: e.target.value})
   }
 
-  handleBlur = () => {
+  handleUpdate = () => {
     const solution = {text: this.state.text, language: this.state.language }
-    DataService.update(
+    DataService.updateSolution(
       this.state.id,
       {solution: solution}
       )
@@ -32,10 +31,10 @@ class EditSolution extends Component {
   render() {
     return (
       <div className="tile">
-      	<form onBlur={this.handleBlur} >
+      	<form onSubmit={this.handleUpdate} >
 					<input className='input' type="text" name="language" placeholder='Enter a Title'
             value={this.state.language} onChange={this.handleInput}
-            ref={this.props.textRef} />
+           />
 					<textarea className='input' name="text" placeholder='Describe your solution'
             value={this.state.text} onChange={this.handleInput}></textarea>
       	</form>

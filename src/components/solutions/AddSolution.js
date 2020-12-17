@@ -49,7 +49,7 @@ const AddSolution = (props) => {
     <div>
       {submitted ? (
         <div>
-          <h6>Solution submitted successfully!</h6>
+          <h6 className="success-alert">Solution submitted successfully!</h6>
           <button className="btn btn-success" onClick={newSolution}>
             Add Solution
           </button>
@@ -64,7 +64,7 @@ const AddSolution = (props) => {
             <label htmlFor="text">Solution:</label>
             <textarea className='input' name="text" placeholder='Enter your solution'
                 value={solution.text} onChange={handleInputChange}></textarea>
-            <button className="btn btn-primary">
+            <button className="btn-flat">
                 Add Solution
             </button>
         </form>

@@ -11,20 +11,24 @@ const ProblemsContainer = () => {
   const [currentProblem, setCurrentProblem] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchTerm, setSearchTerm] = useState('');
-
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetchProblems();
   }, []);
 
   const fetchProblems = () => {
+    setLoading(true);
+
     DataService.getProblems()
       .then(response => {
         setProblems(response.data);
+        setLoading(false);
         console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        console.log('Error', e.message);
+        setLoading(false);
       });
   };
 
@@ -34,13 +38,17 @@ const ProblemsContainer = () => {
   };
 
   const fetchSearchedProblems = () => {   
+    setLoading(true);
+
     DataService.getSearchedProblems(searchTerm)
       .then(response => {
         setProblems(response.data.filter(problem => problem.text.toLowerCase().includes(searchTerm)));
+        setLoading(false);
         console.log(response.data.filter(problem => problem.text.toLowerCase().includes(searchTerm)));
       })
       .catch(e => {
-        console.log(e);
+        console.log('Error', e.message);
+        setLoading(false);
       });
   };
 
@@ -73,14 +81,14 @@ const ProblemsContainer = () => {
       </div> 
       </Row>
       <Row>
-        <div className="form-group new-problem-form">
+        <div className="form-group new-problem-form form-submit">
             <AddProblem/>
         </div>
       </Row>
       
       <Row>
         <div className="list row">
-          <div className="col-md-6">
+          <div className="col-md-6 list-view">
             
              <h4>Coding Problems</h4>
               <ul className="list-group">
@@ -101,7 +109,7 @@ const ProblemsContainer = () => {
         </div>
         
           
-        <div className="col-md-6">
+        <div className="col-md-6 detail-view">
           
               {currentProblem ? (
                 <div>
@@ -130,9 +138,10 @@ const ProblemsContainer = () => {
                 </div>
               )}
            </div>
-          </div>
-        
-       
+          </div>     
+      </Row>
+      <Row className="loading-problem">
+            {loading && <h4>Loading...</h4>}
       </Row>
     </div>   
   );

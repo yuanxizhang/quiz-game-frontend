@@ -43,7 +43,7 @@ const AddProblem = () => {
     <div className="submit-form">
       {submitted ? (
         <div>
-          <h4>Your problem was submitted successfully!</h4>
+          <h6 className="success-alert">Your problem was submitted successfully!</h6>
           <button className="btn btn-success" onClick={newProblem}>
             Add Problem
           </button>

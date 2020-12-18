@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import DataService from "../services/DataService";
 import Solution from '../components/solutions/Solution';
@@ -12,19 +12,25 @@ const ProblemsContainer = () => {
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(false);
+  const isMountedRef = useRef(null);
 
   useEffect(() => {
+    isMountedRef.current = true;
     fetchProblems();
+    return () => isMountedRef.current = false;
   }, []);
 
   const fetchProblems = () => {
+    
     setLoading(true);
 
     DataService.getProblems()
       .then(response => {
-        setProblems(response.data);
-        setLoading(false);
-        console.log(response.data);
+        if(isMountedRef.current){
+            setProblems(response.data);
+            setLoading(false);
+            console.log(response.data);
+        }  
       })
       .catch(e => {
         console.log('Error', e.message);

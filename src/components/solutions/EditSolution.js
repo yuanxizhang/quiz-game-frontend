@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import DataService from "../../services/DataService";
+import DataService from "../../services/ProblemDataService";
 
 
 class EditSolution extends Component {

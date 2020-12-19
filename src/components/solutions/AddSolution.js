@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import DataService from "../../services/DataService";
+import DataService from "../../services/ProblemDataService";
 
 const AddSolution = (props) => {
   const initialSolutionState = {
@@ -50,7 +50,7 @@ const AddSolution = (props) => {
       {submitted ? (
         <div>
           <h6 className="success-alert">Solution submitted successfully!</h6>
-          <button className="btn btn-success" onClick={newSolution}>
+          <button className="btn-flat" onClick={newSolution}>
             Add Solution
           </button>
         </div>

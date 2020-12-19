@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DataService from "../services/DataService";
+import DataService from "../services/ProblemDataService";
 import Solution from '../components/solutions/Solution';
 import SolutionForm from '../components/solutions/EditSolution';
 import update from 'immutability-helper'

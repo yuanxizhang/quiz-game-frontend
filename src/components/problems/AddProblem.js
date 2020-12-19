@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import DataService from "../../services/DataService";
+import DataService from "../../services/ProblemDataService";
 
-const AddProblem = () => {
+const AddProblem = (props) => {
   const initialProblemState = {
     id: null,
     text: ""
@@ -25,6 +25,10 @@ const AddProblem = () => {
           id: response.data.id,
           text: response.data.text
         });
+        props.addProblem({
+          id: response.data.id,
+          text: response.data.text
+        })
         setSubmitted(true);
         console.log("New problem added:",response.data);
       })
@@ -44,7 +48,7 @@ const AddProblem = () => {
       {submitted ? (
         <div>
           <h6 className="success-alert">Your problem was submitted successfully!</h6>
-          <button className="btn btn-success" onClick={newProblem}>
+          <button className="btn-flat" onClick={newProblem}>
             Add Problem
           </button>
         </div>

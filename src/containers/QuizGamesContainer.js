@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
-import DataService from "../services/DataService";
+import DataService from "../services/TestDataService";
 import Questions from '../components/questions/Questions' 
 
 const QuizGamesContainer = () => {

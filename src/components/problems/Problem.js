@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import DataService from "../../services/DataService";
+import DataService from "../../services/ProblemDataService";
 
 const Problem = (props) => {
   const initialProblemState = {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Form, Button, Row, Col } from 'react-bootstrap';
-import DataService from "../services/DataService";
+import DataService from "../services/ProblemDataService";
 import Solution from '../components/solutions/Solution';
 import AddSolution from '../components/solutions/AddSolution';
 import AddProblem from '../components/problems/AddProblem';
@@ -29,7 +29,6 @@ const ProblemsContainer = () => {
         if(isMountedRef.current){
             setProblems(response.data);
             setLoading(false);
-            console.log(response.data);
         }  
       })
       .catch(e => {
@@ -58,7 +57,7 @@ const ProblemsContainer = () => {
       });
   };
 
-  const handleSubmit = (event) => {
+  const handleSearch = (event) => {
     event.preventDefault();
     fetchSearchedProblems();
     setSearchTerm('');
@@ -68,11 +67,15 @@ const ProblemsContainer = () => {
     setSearchTerm(event.target.value)
   }
 
+  const handleAddProblem = (problem) => {
+    setProblems([...problems, problem])
+  }
+
   return (
     <div>
       <Row>
       <div className="search-section">
-          <Form className="search-form" onSubmit={handleSubmit}>
+          <Form className="search-form" onSubmit={handleSearch}>
             <Row>
               <Col>
                 <Form.Group>
@@ -88,7 +91,7 @@ const ProblemsContainer = () => {
       </Row>
       <Row>
         <div className="form-group new-problem-form form-submit">
-            <AddProblem/>
+            <AddProblem addProblem={handleAddProblem} />
         </div>
       </Row>
       

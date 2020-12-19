@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
-import { Container, Form, Button, Row, Col } from 'react-bootstrap';
+import { Container, Form, Button, Row, Col, Spinner } from 'react-bootstrap';
 import TestDataService from "../services/TestDataService";
 import FlashcardList from '../components/flashcards/FlashcardList' 
 import "./container.css";
@@ -7,26 +7,26 @@ import "./container.css";
 const FlashcardsContainer = () => {
     const [flashcards, setFlashcards] = useState([]);
     const [subjects, setSubjects] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [showLoading, setShowLoading] = useState(true);
 
     const subjectEl = useRef()
 
     useEffect(() => {
         let unmounted = false;
-        setLoading(true);
+        setShowLoading(true);
 
         TestDataService
         .getTests()
         .then(resp => {
             if (!unmounted) {
                 setSubjects(resp.data);
-                setLoading(false);
+                setShowLoading(false);
             }
         })
         .catch((error) => {
             if (!unmounted) {
                 console.log('Error', error.message);
-                setLoading(false);
+                setShowLoading(false);
             }
         })
 
@@ -78,7 +78,9 @@ const FlashcardsContainer = () => {
             <FlashcardList flashcards={flashcards} />
         </Row> 
         <Row className="loading">
-            {loading && <h4>Loading...</h4>}
+            {showLoading && <Spinner animation="border" role="status">
+                <span className="sr-only">Loading...</span>
+            </Spinner> }
         </Row>
       </Container>
     );

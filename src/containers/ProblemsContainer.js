@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { Form, Button, Row, Col, Spinner } from 'react-bootstrap';
 import DataService from "../services/ProblemDataService";
 import Solution from '../components/solutions/Solution';
 import AddSolution from '../components/solutions/AddSolution';
@@ -11,7 +11,7 @@ const ProblemsContainer = () => {
   const [currentProblem, setCurrentProblem] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchTerm, setSearchTerm] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [showLoading, setShowLoading] = useState(true);
   const isMountedRef = useRef(null);
 
   useEffect(() => {
@@ -20,20 +20,19 @@ const ProblemsContainer = () => {
     return () => isMountedRef.current = false;
   }, []);
 
-  const fetchProblems = () => {
-    
-    setLoading(true);
+  const fetchProblems = () => {   
+    setShowLoading(true);
 
     DataService.getProblems()
       .then(response => {
         if(isMountedRef.current){
             setProblems(response.data);
-            setLoading(false);
+            setShowLoading(false);
         }  
       })
       .catch(e => {
         console.log('Error', e.message);
-        setLoading(false);
+        setShowLoading(false);
       });
   };
 
@@ -43,17 +42,17 @@ const ProblemsContainer = () => {
   };
 
   const fetchSearchedProblems = () => {   
-    setLoading(true);
+    setShowLoading(true);
 
     DataService.getSearchedProblems(searchTerm)
       .then(response => {
         setProblems(response.data.filter(problem => problem.text.toLowerCase().includes(searchTerm)));
-        setLoading(false);
+        setShowLoading(false);
         console.log(response.data.filter(problem => problem.text.toLowerCase().includes(searchTerm)));
       })
       .catch(e => {
         console.log('Error', e.message);
-        setLoading(false);
+        setShowLoading(false);
       });
   };
 
@@ -79,7 +78,7 @@ const ProblemsContainer = () => {
             <Row>
               <Col>
                 <Form.Group>
-                  <input type="text" name ="text" value={searchTerm} placeholder="Enter key word" onChange={handleChange} />
+                  <input type="text" name ="text" value={searchTerm} placeholder="Enter a key word to find a problem" onChange={handleChange} />
                 </Form.Group> 
               </Col>
               <Col>
@@ -150,7 +149,9 @@ const ProblemsContainer = () => {
           </div>     
       </Row>
       <Row className="loading-problem">
-            {loading && <h4>Loading...</h4>}
+          {showLoading && <Spinner animation="border" role="status">
+                <span className="sr-only">Loading...</span>
+          </Spinner> }
       </Row>
     </div>   
   );

@@ -1,31 +1,31 @@
 import React, {useState, useEffect, useRef} from 'react';
-import { Container, Form, Button, Row, Col } from 'react-bootstrap';
+import { Container, Form, Button, Row, Col, Spinner } from 'react-bootstrap';
 import DataService from "../services/TestDataService";
 import Questions from '../components/questions/Questions' 
 
 const QuizGamesContainer = () => {
     const [subjects, setSubjects] = useState([]);
     const [questions, setQuestions] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [showLoading, setShowLoading] = useState(true);
 
     const subjectEl = useRef()
 
     useEffect(() => {
         let unmounted = false;
-        setLoading(true);
+        setShowLoading(false);
 
         DataService
         .getTests()
         .then(resp => {
             if (!unmounted) {
                 setSubjects(resp.data);
-                setLoading(false);
+                setShowLoading(false);
             }
         })
         .catch((error) => {
             if (!unmounted) {
                 console.log('Error', error.message);
-                setLoading(false);
+                setShowLoading(false);
             }
         })
 
@@ -77,7 +77,9 @@ const QuizGamesContainer = () => {
             <Questions questions={questions} />
         </Row> 
         <Row className="loading">
-            {loading && <h4>Loading...</h4>}
+            {showLoading && <Spinner animation="border" role="status">
+                    <span className="sr-only">Loading...</span>
+            </Spinner> }
         </Row>
       </Container>
     );

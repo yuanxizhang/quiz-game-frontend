@@ -19,9 +19,9 @@ const App = () => {
                <ul className="nav navbar-nav">
                   <li><Link to="/">Home</Link></li>
                   <li><Link to="/flashcards">Flashcards</Link></li>
-                  <li><Link to="/games">Quiz Games</Link></li>
-                  <li><Link to="/problems">Coding Problems</Link></li>
+                  <li><Link to="/games">Quiz Games</Link></li>            
                   <li><Link to="/jobs">Developer Jobs</Link></li>
+                  <li><Link to="/problems">Coding Problems</Link></li>
                </ul>
             </div>
         </nav>     
@@ -30,9 +30,9 @@ const App = () => {
           <Switch>
             <Route exact path='/' component={Home} />          
             <Route path="/flashcards" component={FlashcardsContainer} />
-            <Route path="/games" component={QuizGamesContainer} />
-            <Route path="/problems" component={ProblemsContainer} />
+            <Route path="/games" component={QuizGamesContainer} />         
             <Route path="/jobs" component={JobsContainer} />
+            <Route path="/problems" component={ProblemsContainer} />
           </Switch> 
         </div>    
 	     </div>

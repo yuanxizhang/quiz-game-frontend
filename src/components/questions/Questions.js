@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Spinner } from 'react-bootstrap';
 import Question from './Question';
 import './question.css';
 
@@ -57,7 +58,9 @@ const Questions = ({ questions }) => {
       )}
     </div>
   ) : (
-    <h4>loading...</h4>
+    <Spinner animation="border" role="status">
+      <span className="sr-only">Loading...</span>
+    </Spinner> 
   );
 };
 

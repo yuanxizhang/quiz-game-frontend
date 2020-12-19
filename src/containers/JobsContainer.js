@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Container, Row } from 'react-bootstrap'
+import { Container, Row, Spinner } from 'react-bootstrap'
 import { fetchJobs } from '../actions/fetchJobs'
 import { findSearchedJobs } from '../actions/findSearchedJobs'
 import Job from '../components/jobs/Job'
@@ -29,7 +29,9 @@ class JobsContainer extends Component {
             {jobs}
           </div>
           <div className="loading">
-            {this.props.loading && <h4>Loading...</h4>}
+            {this.props.loading && <Spinner animation="border" role="status">
+                <span className="sr-only">Loading...</span>
+            </Spinner> }
           </div>
         </Row>
       </Container>

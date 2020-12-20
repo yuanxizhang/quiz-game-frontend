@@ -41,7 +41,7 @@ const problemsReducer = (state = {
 
         case 'ADD_SOLUTION':
 
-            const solution = { text: action.solution.text, problemId: action.solution.problemId, id: cuid() };
+            const solution = { text: action.solution.text, language: action.solution.language, problem_id: action.solution.problemId, id: cuid() };
             return { ...state,
               solutions: [...state.solutions, solution]
             }

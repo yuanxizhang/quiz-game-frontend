@@ -31,6 +31,12 @@ const AddSolution = (props) => {
           text: response.data.text,
           language: response.data.language
         });
+        props.addSolution({
+          id: response.data.id,
+          text: response.data.text,
+          language: response.data.language,
+          problem_id: props.problemId
+        })
         console.log("New solution added:", response.data);
         setSubmitted(true);
       })

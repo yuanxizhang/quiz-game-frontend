@@ -55,7 +55,7 @@ const Problem = (props) => {
     <div>
       {currentProblem ? (
         <div className="edit-form">
-          <h4>Coding Challenges and Problems</h4>
+          <h4>Coding Problem</h4>
           <form>
             <div className="form-group">
               <label htmlFor="text">Question: </label>

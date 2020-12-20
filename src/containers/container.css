@@ -266,7 +266,12 @@ body {
   }
 
   .success-alert {
-    background: lightgreen;
+    background: #9bc4e2;
+    color: #1D2D44;
+  }
+
+  .problem-text {
+    background: #9bc4e2;
     color: #1D2D44;
   }
 

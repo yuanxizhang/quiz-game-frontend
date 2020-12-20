@@ -10,6 +10,7 @@ const ProblemsContainer = () => {
   const [problems, setProblems] = useState([]);
   const [currentProblem, setCurrentProblem] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
+  const [currentSolutions, setCurrentSolutions] = useState(currentProblem.solutions);
   const [searchTerm, setSearchTerm] = useState('');
   const [showLoading, setShowLoading] = useState(true);
   const isMountedRef = useRef(null);
@@ -70,6 +71,10 @@ const ProblemsContainer = () => {
     setProblems([...problems, problem])
   }
 
+  const handleAddSolution = (solution) => {
+    setCurrentSolutions([...currentSolutions, solution])
+  }
+
   return (
     <div>
       <Row>
@@ -122,7 +127,7 @@ const ProblemsContainer = () => {
               {currentProblem ? (
                 <div>
                   <h4>Problem Detail</h4>
-                  <div>
+                  <div className="problem-text">
                     <label>
                       <strong>Question:</strong>
                     </label>{" "}
@@ -131,18 +136,18 @@ const ProblemsContainer = () => {
                   
                   <div>
                     <label>
-                      <strong>Solutions:</strong>
+                      {currentProblem.solutions.length === 1? (<h5> 1 Solution</h5>) : (<h5>{currentProblem.solutions.length} Solutions</h5>)}
                     </label>{" "}
                     {currentProblem.solutions && currentProblem.solutions.map( solution => <Solution key={solution.id} solution={solution} />)}
                   </div>
                   <div className="new-solution-form">
-                    <AddSolution problemId = {currentProblem.id} />
+                    <AddSolution problemId = {currentProblem.id} addSolution={handleAddSolution} />
                   </div>
                 </div>
               ) : (
                 <div>
-                  <br />
-                  <p>Please click on a problem to see detail...</p>
+                  <br /><br />
+                  {!showLoading && <p>Please click on a problem to see detail...</p>}
                 </div>
               )}
            </div>

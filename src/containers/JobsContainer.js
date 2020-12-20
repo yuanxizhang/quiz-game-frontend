@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Container, Row, Spinner } from 'react-bootstrap'
 import { fetchJobs } from '../actions/fetchJobs'
 import { findSearchedJobs } from '../actions/findSearchedJobs'
-import Job from '../components/jobs/Job'
+import JobList from '../components/jobs/JobList'
 import JobSearch from '../components/jobs/JobSearch';
 import "./container.css";
 class JobsContainer extends Component {
@@ -17,8 +17,6 @@ class JobsContainer extends Component {
   };
 
   render() {
-   const jobs = this.props.jobs.map(job => <Job key={job.id} job={job} />); 
-
     return(
       <Container>     
         <Row className="search-section">
@@ -26,7 +24,7 @@ class JobsContainer extends Component {
         </Row>
         <Row>      
           <div className="main">
-            {jobs}
+            <JobList jobs={this.props.jobs} />
           </div>
           <div className="loading">
             {this.props.loading && <Spinner animation="border" role="status">

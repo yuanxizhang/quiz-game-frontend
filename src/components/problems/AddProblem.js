@@ -30,7 +30,7 @@ const AddProblem = (props) => {
           text: response.data.text
         })
         setSubmitted(true);
-        console.log("New problem added:",response.data);
+        console.log("New problem added:", response.data);
       })
       .catch(e => {
         console.log(e);

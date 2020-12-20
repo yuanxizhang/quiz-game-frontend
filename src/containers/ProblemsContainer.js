@@ -10,7 +10,6 @@ const ProblemsContainer = () => {
   const [problems, setProblems] = useState([]);
   const [currentProblem, setCurrentProblem] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
-  const [currentSolutions, setCurrentSolutions] = useState(currentProblem.solutions);
   const [searchTerm, setSearchTerm] = useState('');
   const [showLoading, setShowLoading] = useState(true);
   const isMountedRef = useRef(null);
@@ -69,10 +68,6 @@ const ProblemsContainer = () => {
 
   const handleAddProblem = (problem) => {
     setProblems([...problems, problem])
-  }
-
-  const handleAddSolution = (solution) => {
-    setCurrentSolutions([...currentSolutions, solution])
   }
 
   return (
@@ -136,12 +131,12 @@ const ProblemsContainer = () => {
                   
                   <div>
                     <label>
-                      {currentProblem.solutions.length === 1? (<h5> 1 Solution</h5>) : (<h5>{currentProblem.solutions.length} Solutions</h5>)}
+                      { <h5>{currentProblem.solutions && currentProblem.solutions.length} Solutions</h5>}
                     </label>{" "}
                     {currentProblem.solutions && currentProblem.solutions.map( solution => <Solution key={solution.id} solution={solution} />)}
                   </div>
                   <div className="new-solution-form">
-                    <AddSolution problemId = {currentProblem.id} addSolution={handleAddSolution} />
+                    <AddSolution problemId={currentProblem.id} />
                   </div>
                 </div>
               ) : (

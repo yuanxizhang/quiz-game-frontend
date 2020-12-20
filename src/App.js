@@ -21,7 +21,7 @@ const App = () => {
                   <li><Link to="/flashcards">Flashcards</Link></li>
                   <li><Link to="/games">Quiz Games</Link></li>            
                   <li><Link to="/jobs">Developer Jobs</Link></li>
-                  <li><Link to="/problems">Coding Problems</Link></li>
+                  <li><Link to="/problems">Forum</Link></li>
                </ul>
             </div>
         </nav>     

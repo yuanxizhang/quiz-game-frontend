@@ -37,7 +37,8 @@ class Signup extends Component {
         });
         this.props.history.push('/');
     };
-render() {
+
+  render() {
     const { username, password, passwordConfirmation } = this.state;
     
     return (

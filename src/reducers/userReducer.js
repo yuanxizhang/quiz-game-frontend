@@ -1,11 +1,10 @@
-export default  (
+export default function (
   state = {
     isLoggedIn: false,
     id: null,
     username: '',
   },
-  action
-) => {
+  action) {
   switch (action.type) {
     case 'LOGIN_USER':
       return {

@@ -3,7 +3,7 @@ import axios from 'axios';
 export const addUser = (data, handleSuccess) => (dispatch) => {
   axios
     .post(
-      'https://online-quiz-api.herokuapp.com//api/v1/users',
+      'https://online-quiz-api.herokuapp.com/api/v1/users',
       { user: data },
       { withCredentials: true }
     )

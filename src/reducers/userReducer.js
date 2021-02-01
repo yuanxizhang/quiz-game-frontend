@@ -1,4 +1,4 @@
-export default (
+export default  (
   state = {
     isLoggedIn: false,
     id: null,

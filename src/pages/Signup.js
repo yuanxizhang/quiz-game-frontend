@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Button, Row, Col, FormControl, Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { addUser } from '../../actions/addUser.js';
+import { addUser } from '../actions/addUser.js';
 
 class Signup extends Component {
   

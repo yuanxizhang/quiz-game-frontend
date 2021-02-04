@@ -1,10 +1,12 @@
 import cuid from 'cuid';
 
-const problemsReducer = (state = {
-    problems: [],
-    solutions: [],
-    loading: false
-  }, action) => {
+const problemsReducer = (
+    state = {
+        problems: [],
+        solutions: [],
+        loading: false
+    }, 
+    action) => {
     switch(action.type){
         case 'LOADING_PROBLEMS':
             return {

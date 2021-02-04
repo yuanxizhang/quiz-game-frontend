@@ -1,4 +1,4 @@
-export default function (state = [], action) {
+export default function errorsReducer(state = [], action) {
     switch (action.type) {
         case 'ADD_ERROR':
             return [action.error];
@@ -7,4 +7,4 @@ export default function (state = [], action) {
         default:
             return state;
     }
-};
+}

@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 export const loginUser = (data, handleSuccess) => (dispatch) => {
   axios
     .post(
@@ -7,13 +8,13 @@ export const loginUser = (data, handleSuccess) => (dispatch) => {
       { withCredentials: true }
     )
     .then((response) => {
-if (response.data.status === 401) {
+      if (response.data.status === 401) {
         throw new Error(response.data.error)
       }
-dispatch({type: 'LOGIN_USER', user: response.data.user.data.attributes});
+      dispatch({ type: 'LOGIN_USER', user: response.data.user.data.attributes });
       dispatch({ type: 'CLEAR_ERROR' });
       handleSuccess();
-})
+    })
     .catch((response) =>
       dispatch({ type: 'ADD_ERROR', error: response.message })
     );

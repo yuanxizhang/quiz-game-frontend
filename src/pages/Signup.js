@@ -5,16 +5,19 @@ import { addUser } from '../../actions/addUser.js';
 
 class Signup extends Component {
   
-    state = {
-      username: '',
-      password: '',
-      passwordConfirmation: '',
-    };
+    constructor(props) {
+      super(props);
+      this.state = {
+        username: '',
+        password: '',
+        passwordConfirmation: '',
+      };
+    }
   
     handleChange = (event) => {
         const { name, value } = event.target;
         this.setState({
-        [name]: value,
+            [name]: value,
         });
     };
 
@@ -22,9 +25,9 @@ class Signup extends Component {
         event.preventDefault();
         const { username, password, passwordConfirmation } = this.state;
         const user = {
-        username,
-        password,
-        passwordConfirmation,
+            username,
+            password,
+            passwordConfirmation,
         };
         this.props.addUser(user, this.handleSuccess);
     };

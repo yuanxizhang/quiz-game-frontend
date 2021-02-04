@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { Form, Button, FormControl } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { loginUser } from '../../actions/loginUser.js';
+import { loginUser } from '../actions/loginUser.js';
 
 class Login extends Component {
   
-    state = {
-      username: '',
-      password: '',
-    };
+    constructor(props) {
+      super(props);
+      this.state = {
+        username: '',
+        password: '',
+      };
+    }
   
     handleChange = (event) => {
         const { name, value } = event.target;
@@ -63,6 +66,7 @@ class Login extends Component {
 const mapStateToProps = (state) => ({
   error: state.user.error,
 });
+
 const mapDispatchToProps = dispatch => {
     return {
         loginUser: () => { dispatch(loginUser()) }

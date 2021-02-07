@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import axios from "axios";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import FlashcardsContainer from './containers/FlashcardsContainer';
 import QuizGamesContainer from './containers/QuizGamesContainer';
@@ -9,13 +9,47 @@ import history from './services/history';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import { fetchLoginStatus } from './actions/fetchLoginStatus';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      isLoggedIn: false,
+      user: {}
+     };
+  }
+
   componentDidMount() {
-    this.props.fetchLoginStatus();
+    this.loginStatus()
+  }
+
+  loginStatus = () => {
+      axios.get('http://localhost:3001/logged_in', 
+      {withCredentials: true})    
+      .then(response => {
+            if (response.data.logged_in) {
+              this.handleLogin(response)
+            } else {
+              this.handleLogout()
+            }
+          })
+      .catch(error => console.log('api errors:', error))
+  }
+
+  handleLogin = (data) => {
+      this.setState({
+        isLoggedIn: true,
+        user: data.user
+      })
+  }
+
+  handleLogout = () => {
+      this.setState({
+      isLoggedIn: false,
+      user: {}
+      })
   }
 
   render() {
@@ -23,17 +57,17 @@ class App extends React.Component {
       <Router history={history}>
         <div className="App">
           <nav className = "navbar navbar-default navbar-fixed-top navbar-expand-sm justify-content-between" role = "navigation">    
-              <div className ="navbar-nav justify-content-end">  
-                <ul className="nav navbar-nav">
+              <div className ="navbar-nav justify-content-between">  
+                <ul className="nav navbar-nav mr-auto">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/flashcards">Flashcards</Link></li>
                     <li><Link to="/games">Quiz Games</Link></li>            
                     <li><Link to="/jobs">Developer Jobs</Link></li>
                     <li><Link to="/problems">Forum</Link></li>
                 </ul>
-                <ul class="nav navbar-nav ml-auto">
-                  <li><Link to="/login">Login</Link></li>
-                  <li><Link to="/login">Signup</Link></li>
+                <ul className="nav navbar-nav">
+                    <li><Link to='/login'>Log In</Link></li>
+                    <li><Link to='/signup'>Sign Up</Link></li>
                 </ul>
               </div>
           </nav>     
@@ -55,13 +89,4 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  user: state.user,
-});
-
-const mapDispatchToProps = dispatch => {
-    return {
-        fetchLoginStatus: () => { dispatch(fetchLoginStatus()) }
-    }
-};
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

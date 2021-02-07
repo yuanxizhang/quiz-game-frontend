@@ -1,75 +1,101 @@
 import React, { Component } from 'react';
-import { Form, Button, FormControl } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import { loginUser } from '../actions/loginUser.js';
-
+import axios from 'axios'
+import {Link} from 'react-router-dom'
 class Login extends Component {
-  
-    constructor(props) {
-      super(props);
-      this.state = {
-        username: '',
-        password: '',
-      };
-    }
-  
-    handleChange = (event) => {
-        const { name, value } = event.target;
-        this.setState({
-            [name]: value,
-        });
+  constructor(props) {
+    super(props);
+    this.state = { 
+      username: '',
+      email: '',
+      password: '',
+      errors: ''
      };
+  }
+
+  handleChange = (event) => {
+      const {name, value} = event.target
+      this.setState({
+        [name]: value
+      })
+  };
 
     handleSubmit = (event) => {
-        event.preventDefault();
-        this.props.loginUser(this.state, this.handleSuccess);
+      event.preventDefault()
+      const {username, email, password} = this.state
+      let user = {
+        username: username,
+        email: email,
+        password: password
+      }
+    
+      axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
+      .then(response => {
+        if (response.data.logged_in) {
+          this.props.handleLogin(response.data)
+          this.redirect()
+        } else {
+          this.setState({
+            errors: response.data.errors
+          })
+        }
+      })
+      .catch(error => console.log('api errors:', error))
     };
 
-    handleSuccess = () => {
-        this.setState({
-            username: '',
-            password: '',
-        });
-    };
-
-    render() {
-        const { username, password } = this.state;
-
-    return (
-      <div>
-        <Form inline onSubmit={this.handleSubmit}>
-          <FormControl
-            type="text"
-            placeholder="username"
-            className="mr-sm-2"
-            name="username"
-            value={username}
-            onChange={this.handleChange}
-          />
-          <FormControl
-            type="password"
-            placeholder="password"
-            className="mr-sm-2"
-            name="password"
-            value={password}
-            onChange={this.handleChange}
-          />
-          <Button variant="outline-success" type="submit">
-            Login
-          </Button>
-        </Form>
-      </div>
-    );
-  }
-}
-
-const mapStateToProps = (state) => ({
-  error: state.user.error,
-});
-
-const mapDispatchToProps = dispatch => {
-    return {
-        loginUser: () => { dispatch(loginUser()) }
+    redirect = () => {
+      this.props.history.push('/')
     }
-};
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+
+    handleErrors = () => {
+      return (
+        <div>
+          <ul>
+            {this.state.errors.map(error => {
+                return <li key={error}>{error}</li>
+            })}
+          </ul>
+        </div>
+      )
+    };
+
+  render() {
+      const {username, email, password} = this.state
+      
+      return (
+        <div>
+          <h1>Log In</h1>        
+          <form onSubmit={this.handleSubmit}>
+            <input
+              placeholder="username"
+              type="text"
+              name="username"
+              value={username}
+              onChange={this.handleChange}
+            />
+            <input
+              placeholder="email"
+              type="text"
+              name="email"
+              value={email}
+              onChange={this.handleChange}
+            />
+            <input
+              placeholder="password"
+              type="password"
+              name="password"
+              value={password}
+              onChange={this.handleChange}
+            />         
+            <button placeholder="submit" type="submit">
+              Log In
+            </button>          
+            <div>
+              or <Link to='/signup'>sign up</Link>
+            </div>
+            
+          </form>
+        </div>
+      );
+    }
+}
+export default Login;

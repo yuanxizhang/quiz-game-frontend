@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import { Card } from 'react-bootstrap'
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -21,10 +22,9 @@ class Login extends Component {
 
     handleSubmit = (event) => {
       event.preventDefault()
-      const {username, email, password} = this.state
+      const {username, password} = this.state
       let user = {
         username: username,
-        email: email,
         password: password
       }
     
@@ -43,7 +43,8 @@ class Login extends Component {
     };
 
     redirect = () => {
-      this.props.history.push('/')
+      const path = `/users/${this.state.username}`;
+      this.props.history.push(path)
     }
 
     handleErrors = () => {
@@ -59,41 +60,38 @@ class Login extends Component {
     };
 
   render() {
-      const {username, email, password} = this.state
+      const {username, password} = this.state
       
       return (
         <div>
-          <h1>Log In</h1>        
-          <form onSubmit={this.handleSubmit}>
-            <input
-              placeholder="username"
-              type="text"
-              name="username"
-              value={username}
-              onChange={this.handleChange}
-            />
-            <input
-              placeholder="email"
-              type="text"
-              name="email"
-              value={email}
-              onChange={this.handleChange}
-            />
-            <input
-              placeholder="password"
-              type="password"
-              name="password"
-              value={password}
-              onChange={this.handleChange}
-            />         
-            <button placeholder="submit" type="submit">
-              Log In
-            </button>          
-            <div>
-              or <Link to='/signup'>sign up</Link>
-            </div>
-            
-          </form>
+          <Card className="card-login" style={{ width: '36rem' }}>
+            <Card.Body>
+            <Card.Title>Login</Card.Title>       
+                  <form onSubmit={this.handleSubmit}>
+                    <input
+                      placeholder="username"
+                      type="text"
+                      name="username"
+                      value={username}
+                      onChange={this.handleChange}
+                    />
+                    <input
+                      placeholder="password"
+                      type="password"
+                      name="password"
+                      value={password}
+                      onChange={this.handleChange}
+                    />         
+                    <button placeholder="submit" type="submit">
+                      Log In
+                    </button>          
+                    <div>
+                      or <Link to='/signup'>sign up</Link>
+                    </div>
+                    
+                  </form>
+          </Card.Body>
+          </Card>   
         </div>
       );
     }

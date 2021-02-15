@@ -9,6 +9,7 @@ import history from './services/history';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import Profile from './pages/userProfile';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
@@ -27,7 +28,7 @@ class App extends React.Component {
 
   loginStatus = () => {
       axios.get('http://localhost:3001/logged_in', 
-      {withCredentials: true})    
+          {withCredentials: true})    
       .then(response => {
             if (response.data.logged_in) {
               this.handleLogin(response)
@@ -81,6 +82,7 @@ class App extends React.Component {
               <Route path="/games" component={QuizGamesContainer} />         
               <Route path="/jobs" component={JobsContainer} />
               <Route path="/problems" component={ProblemsContainer} />
+              <Route path={"/users/:userId"} component={Profile} />            
             </Switch> 
           </div>    
         </div>

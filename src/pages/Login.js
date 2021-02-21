@@ -3,43 +3,29 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import { Card } from 'react-bootstrap'
 class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      username: '',
-      email: '',
-      password: '',
-      errors: ''
-     };
-  }
-
-  handleChange = (event) => {
-      const {name, value} = event.target
-      this.setState({
-        [name]: value
-      })
-  };
+  
+    state = {
+      email: "",
+      password: ""
+    }
+  
+    handleChange = (event) => {
+        const {name, value} = event.target
+        this.setState({
+          [name]: value
+        })
+    };
 
     handleSubmit = (event) => {
       event.preventDefault()
-      const {username, password} = this.state
-      let user = {
-        username: username,
-        password: password
-      }
+      let request = {"auth": {"email": this.state.email, "password": this.state.password}}
     
-      axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
+      axios.post('http://localhost:3001/login', request)
       .then(response => {
-        if (response.data.logged_in) {
-          this.props.handleLogin(response.data)
-          this.redirect()
-        } else {
-          this.setState({
-            errors: response.data.errors
-          })
-        }
+        localStorage.setItem("jwt", response.data.jwt);
+        this.props.history.push("/");
       })
-      .catch(error => console.log('api errors:', error))
+      .catch(error => console.log('API errors:', error))
     };
 
     redirect = () => {
@@ -60,7 +46,7 @@ class Login extends Component {
     };
 
   render() {
-      const {username, password} = this.state
+      const {email, password} = this.state
       
       return (
         <div>
@@ -69,10 +55,10 @@ class Login extends Component {
             <Card.Title>Login</Card.Title>       
                   <form onSubmit={this.handleSubmit}>
                     <input
-                      placeholder="username"
+                      placeholder="email"
                       type="text"
-                      name="username"
-                      value={username}
+                      name="email"
+                      value={email}
                       onChange={this.handleChange}
                     />
                     <input

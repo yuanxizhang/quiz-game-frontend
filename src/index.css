@@ -14,12 +14,11 @@ ul.nav li {
   margin: 0;
 }
 ul.nav {
-  background-color: #1D2D44;
+  background-color: #748CAB;
   padding: 0;
 }
 ul.nav li a {
-  color: whites;
-  font-weight: bold;
+  color: white;
   text-decoration: none;
   padding: 20px;
   display: inline-block;

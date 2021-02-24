@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Card } from 'react-bootstrap'
 class Login extends Component {
   
@@ -20,7 +20,7 @@ class Login extends Component {
       event.preventDefault()
       let request = {"auth": {"email": this.state.email, "password": this.state.password}}
     
-      axios.post('http://localhost:3001/login', request)
+      axios.post('http://localhost:3003/api/v1/login', request)
       .then(response => {
         localStorage.setItem("jwt", response.data.jwt);
         this.props.history.push("/");
@@ -49,36 +49,41 @@ class Login extends Component {
       const {email, password} = this.state
       
       return (
-        <div>
-          <Card className="card-login" style={{ width: '36rem' }}>
-            <Card.Body>
-            <Card.Title>Login</Card.Title>       
-                  <form onSubmit={this.handleSubmit}>
+                  
+          <form onSubmit={this.handleSubmit}>
+              <h3>Log in</h3>
+              <div className="form-group">
+                    <label>Email</label>
                     <input
+                      className="form-control"
                       placeholder="email"
                       type="text"
                       name="email"
                       value={email}
                       onChange={this.handleChange}
                     />
+              </div>
+
+              <div className="form-group">
+                    <label>Password</label>
                     <input
+                      className="form-control"
                       placeholder="password"
                       type="password"
                       name="password"
                       value={password}
                       onChange={this.handleChange}
-                    />         
-                    <button placeholder="submit" type="submit">
-                      Log In
-                    </button>          
+                    />   
+              </div>
+
+              <button  className="btn btn-dark btn-lg btn-block" placeholder="submit" type="submit">
+                  Log in
+              </button>          
                     <div>
                       or <Link to='/signup'>sign up</Link>
                     </div>
                     
-                  </form>
-          </Card.Body>
-          </Card>   
-        </div>
+          </form>   
       );
     }
 }

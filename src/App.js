@@ -10,6 +10,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Profile from './pages/Profile';
+import PrivateRoute from './components/PrivateRoute';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -18,8 +19,9 @@ const App = () => {
     return ((
       <Router history={history}>
         <div className="App">
-          <nav className = "navbar navbar-default navbar-fixed-top navbar-expand-sm justify-content-between" role = "navigation">  
-              <a href="/" className="navbar-brand">QuizBox</a>  
+          <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+            <div>
+              <Link className="navbar-brand" to='/'>QuizBox</Link>
               <div className ="navbar-nav justify-content-between">  
                 <ul className="nav navbar-nav mr-auto">                 
                     <li><Link to="/flashcards">Flashcards</Link></li>
@@ -30,12 +32,13 @@ const App = () => {
                 <ul className="nav navbar-nav ml-auto">
                     {
                       localStorage.getItem("jwt") ?
-                        <li className="nav-item"><Link exact className="nav-link" to="/logout">Log Out</Link></li>
+                        <li><Link className="nav-link" to="/logout">Log out</Link></li>
                         :
-                        <li className="nav-item"><Link exact className="nav-link" activeClassName="active" to="/login">Log In</Link></li>
+                        <li><Link className="nav-link" to="/login">Log in</Link></li>
                     }
                 </ul>
               </div>
+            </div>
           </nav>     
           
           <div className="container">
@@ -48,7 +51,7 @@ const App = () => {
               <Route path="/games" component={QuizGamesContainer} />         
               <Route path="/jobs" component={JobsContainer} />
               <Route path="/problems" component={ProblemsContainer} />
-              <Route path={"/users/:username"} component={Profile} />            
+              <PrivateRoute path={"/profile"} component={Profile} />            
             </Switch> 
           </div>    
         </div>

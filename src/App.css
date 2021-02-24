@@ -19,7 +19,7 @@ body {
 /* Style the navigation bar */
 .navbar {
   width: 100%;
-  background-color: #1D2D44;
+  background-color: #748CAB;
   overflow: auto;
 }
 
@@ -40,8 +40,8 @@ body {
 
 /* Navbar links on mouse-over */
 .navbar a:hover {
-  background-color: #748CAB;
-  color: black;
+  background-color: #1D2D44;
+  color: white;
 }
 
 /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */

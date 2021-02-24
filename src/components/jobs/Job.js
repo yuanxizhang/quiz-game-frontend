@@ -9,23 +9,23 @@ const Job = ({job}) => {
             <div className="d-flex justify-content-between">
               <div>
                 <Card.Title>
-                  {job.title} - <span className="text-muted font-weight-light">{job.company}</span>
+                  {job.title} - <span className="text-muted font-weight-light">{job.company_name}</span>
                 </Card.Title>
                 <Card.Subtitle className="text-muted mb-2">
-                  Posted on: {new Date(job.created_at).toLocaleDateString()}
+                  Posted on: {new Date(job.publication_date).toLocaleDateString()}
                 </Card.Subtitle>
                 <Card.Subtitle className="text-muted mb-2">
-                  Company website: <a href={job.company_url}>{job.company_url}</a>
+                  Company website: <a href={job.url}>{job.url}</a>
                 </Card.Subtitle>
-                <Badge variant="secondary" className="mr-2">{job.type}</Badge>
-                <Badge variant="secondary">{job.location}</Badge>
-                <div dangerouslySetInnerHTML={{ __html: job.how_to_apply }} className="howtoapply"></div>
+                <Badge variant="secondary" className="mr-2">{job.job_type}</Badge>
+                <Badge variant="secondary">{job.candidate_required_location}</Badge>
+                {/* <div dangerouslySetInnerHTML={{ __html: job.}} className="howtoapply"></div>
               </div>
               <div className="companylogo">
                 <img className="d-none d-md-block" height="50" alt={job.company} src={job.company_logo} />
-              </div>
+              </div> */}
             </div>
-            
+          </div>  
             
             
         </Card.Body>

@@ -18,14 +18,14 @@ ul.nav {
   padding: 0;
 }
 ul.nav li a {
-  color: white;
+  color: black;
   text-decoration: none;
-  padding: 20px;
+  padding: 15px;
   display: inline-block;
 }
 
 .headline {
   position: absolute;
-  top: 1rem;
+  top: 1.5rem;
   left: 3rem;
 }

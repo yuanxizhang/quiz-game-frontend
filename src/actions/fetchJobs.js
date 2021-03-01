@@ -1,5 +1,5 @@
 export function fetchJobs() {
-    const BASE_URL = 'https://remotive.io/api/remote-jobs'
+    const BASE_URL = 'https://app.cors.bridged.cc/https://jobs.github.com/positions.json'
 
     return (dispatch) => {
       dispatch({ type: 'LOADING_JOBS' });

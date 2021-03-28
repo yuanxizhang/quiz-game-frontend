@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
+import { signUserUp } from '../actions/userActions'
 class Signup extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
+  
+  state = { 
       username: '',
       email: '',
       password: '',
-      password_confirmation: '',
-      errors: ''
-     };
-  }
+      password_confirmation: ''
+  };
 
   handleChange = (event) => {
       const {name, value} = event.target
@@ -21,72 +20,46 @@ class Signup extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    const {username, email, password, password_confirmation} = this.state
-    let user = {
-      username: username,
-      email: email,
-      password: password,
-      password_confirmation: password_confirmation
-    }
-
-    axios.post('http://localhost:3001/users', {user}, {withCredentials: true})
-    .then(response => {
-      if (response.data.status === 'created') {
-        this.props.handleLogin(response.data)
-        this.redirect()
-      } else {
-        this.setState({
-          errors: response.data.errors
-        })
-      }
-    })
-    .catch(error => console.log('api errors:', error))
+    this.props.signUserUp(this.state)
   };
-
-  redirect = () => {
-    this.props.history.push('/')
-  }
-
-  handleErrors = () => {
-      return (
-        <div>
-          <ul>{this.state.errors.map((error) => {
-            return <li key={error}>{error}</li>
-            })}
-          </ul> 
-        </div>
-      )
-    };
-
 
   render() {
     const {username, email, password, password_confirmation} = this.state
 
     return (
       <div>
-        <h1>Sign Up</h1>        
+        <h3>Sign Up</h3>        
         <form onSubmit={this.handleSubmit}>
-          <input
-            placeholder="username"
-            type="text"
-            name="username"
-            value={username}
-            onChange={this.handleChange}
-          />
-          <input
-            placeholder="email"
-            type="text"
-            name="email"
-            value={email}
-            onChange={this.handleChange}
-          />
-          <input 
-            placeholder="password"
-            type="password"
-            name="password"
-            value={password}
-            onChange={this.handleChange}
-          />          
+          <div className="form-group">
+              <label>Username</label>
+              <input
+                placeholder="username"
+                type="text"
+                name="username"
+                value={username}
+                onChange={this.handleChange}
+              />
+          </div>
+          <div className="form-group">
+              <label>Email address</label>
+              <input
+                  placeholder="email"
+                  type="text"
+                  name="email"
+                  value={email}
+                  onChange={this.handleChange}
+              />
+          </div>
+          <div className="form-group">
+              <label>Password</label>
+              <input 
+                placeholder="password"
+                type="password"
+                name="password"
+                value={password}
+                onChange={this.handleChange}
+              />
+          </div>          
           <input
             placeholder="password confirmation"
             type="password"
@@ -95,14 +68,22 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
         
-          <button placeholder="submit" type="submit">
+          <button placeholder="submit" type="submit" className="btn btn-primary btn-block" >
             Sign Up
           </button>
-      
+          <p className="text-right">
+                    Already registered? <Link to='/login'>Log in</Link>
+          </p>
         </form>
       </div>
     );
   }
 }
 
-export default Signup;
+const mapDispatchToProps = (dispatch) => {
+  return {
+      signUserUp: (userInfo) => dispatch(signUserUp(userInfo))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Signup)

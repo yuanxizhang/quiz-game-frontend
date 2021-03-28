@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios'
-import { Link } from 'react-router-dom'
-import { Card } from 'react-bootstrap'
+import {connect} from 'react-redux';
+import {fetchUser} from '../actions/userActions';
+
 class Login extends Component {
   
     state = {
@@ -18,31 +18,7 @@ class Login extends Component {
 
     handleSubmit = (event) => {
       event.preventDefault()
-      let request = {"auth": {"email": this.state.email, "password": this.state.password}}
-    
-      axios.post('http://localhost:3003/api/v1/login', request)
-      .then(response => {
-        localStorage.setItem("jwt", response.data.jwt);
-        this.props.history.push("/");
-      })
-      .catch(error => console.log('API errors:', error))
-    };
-
-    redirect = () => {
-      const path = `/users/${this.state.username}`;
-      this.props.history.push(path)
-    }
-
-    handleErrors = () => {
-      return (
-        <div>
-          <ul>
-            {this.state.errors.map(error => {
-                return <li key={error}>{error}</li>
-            })}
-          </ul>
-        </div>
-      )
+      this.props.fetchUser(this.state)
     };
 
   render() {
@@ -76,7 +52,7 @@ class Login extends Component {
                     />   
               </div>
 
-              <button  className="btn btn-dark btn-lg btn-block" placeholder="submit" type="submit">
+              <button  placeholder="submit" type="submit" className="btn btn-primary btn-block">
                   Log in
               </button>          
                     <div>
@@ -87,4 +63,11 @@ class Login extends Component {
       );
     }
 }
-export default Login;
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+      fetchUser: (userInfo) => dispatch(fetchUser(userInfo))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Login)

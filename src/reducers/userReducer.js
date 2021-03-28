@@ -1,25 +1,23 @@
-export default function userReducer(
-  state = {
-    isLoggedIn: false,
-    id: null,
-    username: '',
-  },
-  action) {
-  switch (action.type) {
-    case 'LOGIN_USER':
-      return {
-        isLoggedIn: true,
-        id: action.user.id,
-        username: action.user.username,
-      };
-    case 'LOGOUT_USER':
-      return {
-        isLoggedIn: false,
-        id: null,
-        username: '',
-      };
-    default:
-      return state;
+const initialState = {
+  loggedIn: false,
+  user: {}
+}
+
+const userReducer = (state = initialState, action) => {
+  switch(action.type){
+      case "SET_USER":
+          return {
+              loggedIn: true,
+              user: {...action.payload}
+          }
+      case "LOG_OUT":
+          localStorage.clear()
+          return {
+              loggedIn: false,
+              user: {}
+          }
+      default: return state
   }
 }
 
+export default userReducer

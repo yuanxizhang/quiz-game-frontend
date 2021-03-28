@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { autoLogin } from './actions/userActions'
 import FlashcardsContainer from './containers/FlashcardsContainer';
 import QuizGamesContainer from './containers/QuizGamesContainer';
 import ProblemsContainer from './containers/ProblemsContainer';
@@ -11,10 +13,14 @@ import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Profile from './pages/Profile';
 import PrivateRoute from './components/PrivateRoute';
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+class App extends React.Component{
+  componentDidMount(){
+    this.props.autoLogin()
+  }
 
-const App = () => {
+  render(){
   
     return ((
       <Router history={history}>
@@ -57,6 +63,19 @@ const App = () => {
         </div>
       </Router>)
     );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    userReducer: state.userReducer
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    autoLogin: () => dispatch(autoLogin())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

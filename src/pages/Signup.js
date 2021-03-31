@@ -27,7 +27,7 @@ class Signup extends Component {
     const {username, email, password, password_confirmation} = this.state
 
     return (
-      <div>
+      <div className="container-sm border"> 
         <h3>Sign Up</h3>        
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
@@ -59,20 +59,23 @@ class Signup extends Component {
                 value={password}
                 onChange={this.handleChange}
               />
-          </div>          
-          <input
-            placeholder="password confirmation"
-            type="password"
-            name="password_confirmation"
-            value={password_confirmation}
-            onChange={this.handleChange}
-          />
+          </div> 
+          <div className="form-group">
+              <label>Password Confirmation</label>         
+              <input
+                placeholder="password confirmation"
+                type="password"
+                name="password_confirmation"
+                value={password_confirmation}
+                onChange={this.handleChange}
+              />
+          </div> 
         
           <button placeholder="submit" type="submit" className="btn btn-primary btn-block" >
             Sign Up
           </button>
           <p className="text-right">
-                    Already registered? <Link to='/login'>Log in</Link>
+              Already registered? <Link to='/login'>Log in</Link>
           </p>
         </form>
       </div>

@@ -9,7 +9,7 @@ export const fetchUser = (userInfo) => dispatch => {
             "Content-Type": "application/json",
             "Accept": "application/json"
         },
-        body: JSON.stringify(userInfo)
+        body: {auth: JSON.stringify(userInfo)}
     })
     .then(res => res.json())
     .then(data => {
@@ -19,7 +19,7 @@ export const fetchUser = (userInfo) => dispatch => {
 }
 
 export const signUserUp = (userInfo) => dispatch => {
-    fetch(`http://localhost:3003/api/v1/users`, {
+    fetch(`http://localhost:3003/api/v1/signup`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

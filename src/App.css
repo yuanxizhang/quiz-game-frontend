@@ -16,6 +16,11 @@ body {
   width: 100%;
 }
 
+.container-sm {
+  width: 50%;
+  justify-content: center;
+}
+
 /* Style the navigation bar */
 .navbar {
   width: 100%;
@@ -41,7 +46,7 @@ body {
 /* Navbar links on mouse-over */
 .navbar a:hover {
   background-color: white;
-  color: ;
+  color: #17223a;
 }
 
 /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */

@@ -1,7 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { autoLogin } from './actions/userActions'
 import FlashcardsContainer from './containers/FlashcardsContainer';
 import QuizGamesContainer from './containers/QuizGamesContainer';
 import ProblemsContainer from './containers/ProblemsContainer';
@@ -15,20 +13,26 @@ import Profile from './pages/Profile';
 import PrivateRoute from './components/PrivateRoute';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-class App extends React.Component{
-  componentDidMount(){
-    this.props.autoLogin()
-  }
 
-  render(){
+const App = () => {
   
     return ((
       <Router history={history}>
-        <div className="App">
-          <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-            <div>
-              <Link className="navbar-brand" to='/'>QuizBox</Link>
-              <div className ="navbar-nav justify-content-between">  
+        <div className="App">        
+          <div className="container">
+            <Navigation />
+            <Main /> 
+          </div>    
+        </div>
+      </Router>)
+    ); 
+}
+
+const Navigation = () => (
+    <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+        <div>
+            <Link className="navbar-brand" to='/'>QuizBox</Link>
+            <div className ="navbar-nav justify-content-between">  
                 <ul className="nav navbar-nav mr-auto">                 
                     <li><Link to="/flashcards">Flashcards</Link></li>
                     <li><Link to="/games">Quiz Games</Link></li>            
@@ -43,39 +47,23 @@ class App extends React.Component{
                         <li><Link className="nav-link" to="/login">Log in</Link></li>
                     }
                 </ul>
-              </div>
             </div>
-          </nav>     
-          
-          <div className="container">
-            <Switch>
-              <Route exact path='/' component={Home} />  
-              <Route path="/login" component={Login} />
-              <Route path="/logout" component={Logout} />
-              <Route path="/signup" render={(props) => <Signup {...props} />} />        
-              <Route path="/flashcards" component={FlashcardsContainer} />
-              <Route path="/games" component={QuizGamesContainer} />         
-              <Route path="/jobs" component={JobsContainer} />
-              <Route path="/problems" component={ProblemsContainer} />
-              <PrivateRoute path={"/profile"} component={Profile} />            
-            </Switch> 
-          </div>    
         </div>
-      </Router>)
-    );
-  }
-}
+    </nav> 
+)
 
-const mapStateToProps = (state) => {
-  return {
-    userReducer: state.userReducer
-  }
-}
+const Main = () => (
+    <Switch>
+        <Route exact path='/' component={Home} />  
+        <Route path="/login" component={Login} />
+        <Route path="/logout" component={Logout} />
+        <Route path="/signup" render={(props) => <Signup {...props} />} />        
+        <Route path="/flashcards" component={FlashcardsContainer} />
+        <Route path="/games" component={QuizGamesContainer} />         
+        <Route path="/jobs" component={JobsContainer} />
+        <Route path="/problems" component={ProblemsContainer} />
+        <PrivateRoute path={"/profile"} component={Profile} />            
+    </Switch> 
+)
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    autoLogin: () => dispatch(autoLogin())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

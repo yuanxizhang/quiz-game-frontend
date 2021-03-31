@@ -1,73 +1,59 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import {fetchUser} from '../actions/userActions';
-
+import { Link } from 'react-router-dom';
+import { post } from 'axios';
 class Login extends Component {
-  
-    state = {
-      email: "",
-      password: ""
-    }
-  
-    handleChange = (event) => {
-        const {name, value} = event.target
-        this.setState({
-          [name]: value
-        })
-    };
 
-    handleSubmit = (event) => {
-      event.preventDefault()
-      this.props.fetchUser(this.state)
-    };
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const request = {"auth": {"email": email, "password": password}};
 
-  render() {
-      const {email, password} = this.state
-      
+    post('http://localhost:3003/api/v1/login', request)
+      .then(response => {
+        localStorage.setItem("jwt", response.data.jwt);
+        this.props.history.push("/");
+      })
+      .catch(error => console.log('error', error));
+  }      
+
+  render() {    
       return (
-                  
+        <div className="container-sm border">         
           <form onSubmit={this.handleSubmit}>
               <h3>Log in</h3>
               <div className="form-group">
-                    <label>Email</label>
-                    <input
+                  <label>Email</label>
+                  <input
                       className="form-control"
                       placeholder="email"
                       type="text"
                       name="email"
-                      value={email}
-                      onChange={this.handleChange}
-                    />
+                      id="email"
+                  />
               </div>
 
               <div className="form-group">
-                    <label>Password</label>
-                    <input
+                  <label>Password</label>
+                  <input
                       className="form-control"
                       placeholder="password"
                       type="password"
                       name="password"
-                      value={password}
-                      onChange={this.handleChange}
-                    />   
+                      id="password"
+                  />   
               </div>
 
               <button  placeholder="submit" type="submit" className="btn btn-primary btn-block">
                   Log in
               </button>          
-                    <div>
-                      or <Link to='/signup'>sign up</Link>
-                    </div>
-                    
-          </form>   
+              <div>
+                  or <Link to='/signup'>sign up</Link>
+              </div>                  
+          </form>  
+        </div>  
       );
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-      fetchUser: (userInfo) => dispatch(fetchUser(userInfo))
-  }
-}
-
-export default connect(null, mapDispatchToProps)(Login)
+export default Login

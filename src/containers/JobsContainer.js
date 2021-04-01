@@ -17,8 +17,7 @@ class JobsContainer extends Component {
   };
 
   render() {
-    const jobs = this.props.jobs.map(job => <Job key={job.id} job={job} />);
-
+      
     return(
       <Container>     
         <Row className="search-section">
@@ -26,7 +25,11 @@ class JobsContainer extends Component {
         </Row>
         <Row>      
           <div className="main">
-            {jobs}
+              {this.props.jobs.length > 0 ? (
+                  this.props.jobs.map(job => <Job key={job.id} job={job} />)
+                  ):(
+                  <h3>No data</h3>
+              )}
           </div>
           <div className="loading">
             {this.props.loading && <Spinner animation="border" role="status">

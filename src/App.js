@@ -21,7 +21,7 @@ const App = () => {
         <div className="App">        
           <div className="container">
             <Navigation />
-            <Main /> 
+            <Switchboard /> 
           </div>    
         </div>
       </Router>)
@@ -52,7 +52,7 @@ const Navigation = () => (
     </nav> 
 )
 
-const Main = () => (
+const Switchboard = () => (
     <Switch>
         <Route exact path='/' component={Home} />  
         <Route path="/login" component={Login} />

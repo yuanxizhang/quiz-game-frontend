@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { post } from 'axios';
+import Axios from 'axios';
 class Login extends Component {
 
   handleSubmit = (event) => {
@@ -9,7 +9,7 @@ class Login extends Component {
     const password = document.getElementById('password').value;
     const request = {"auth": {"email": email, "password": password}};
 
-    post('http://localhost:3003/api/v1/login', request)
+    Axios.post('http://localhost:3003/api/v1/login', request)
       .then(response => {
         localStorage.setItem("jwt", response.data.jwt);
         this.props.history.push("/");

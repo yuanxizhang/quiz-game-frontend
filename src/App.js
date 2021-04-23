@@ -34,10 +34,10 @@ const Navigation = () => (
             <Link className="navbar-brand" to='/'>QuizBox</Link>
             <div className ="navbar-nav justify-content-between">  
                 <ul className="nav navbar-nav mr-auto">                 
-                    <li><Link to="/flashcards">Flashcards</Link></li>
-                    <li><Link to="/games">Quiz Games</Link></li>            
-                    <li><Link to="/jobs">Developer Jobs</Link></li>
-                    <li><Link to="/problems">Forum</Link></li>
+                    <li className="nav-item"><Link to="/flashcards">Flashcards</Link></li>
+                    <li className="nav-item"><Link to="/games">Quiz Games</Link></li>            
+                    <li className="nav-item"><Link to="/jobs">Developer Jobs</Link></li>
+                    <li className="nav-item"><Link to="/problems">Forum</Link></li>
                 </ul>
                 <ul className="nav navbar-nav ml-auto">
                     {

@@ -243,6 +243,8 @@ ul.nav li a {
 
 .search-section {
   position: absolute;
+  top: 10%;
+  left: 10%;
   width: 100%;
   margin: 0px auto;
   background-color: #748CAB;
@@ -260,10 +262,4 @@ ul.nav li a {
 
 .select-label {  
   text-align: right; 
-}
-
-.slideText {
-  text-align: left;
-  padding-top: 0.5rem;
-  padding-left: 0.25rem;
 }

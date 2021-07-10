@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Form, Button, Row, Col, Spinner } from 'react-bootstrap';
+import { Container, Form, Button, Row, Col, Spinner } from 'react-bootstrap';
 import DataService from "../services/ProblemDataService";
 import Solution from '../components/solutions/Solution';
 import AddSolution from '../components/solutions/AddSolution';
@@ -71,7 +71,7 @@ const ProblemsContainer = () => {
   }
 
   return (
-    <div>
+    <Container className="container">
       <Row>
       <div className="search-section">
           <Form className="search-form" onSubmit={handleSearch}>
@@ -153,7 +153,7 @@ const ProblemsContainer = () => {
                 <span className="sr-only">Loading...</span>
           </Spinner> }
       </Row>
-    </div>   
+    </Container>   
   );
 };
 

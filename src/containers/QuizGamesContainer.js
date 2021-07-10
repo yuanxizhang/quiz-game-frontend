@@ -47,8 +47,8 @@ const QuizGamesContainer = () => {
     }
 
     return (
-       <Container>
-        <Row className="search-section">
+       <Container className="container">
+        <Row className="select-form">
             <Form className="select-form" onSubmit={handleSubmit}>
                 <Row>
                     <Col>
@@ -73,7 +73,7 @@ const QuizGamesContainer = () => {
                 </Row>    
             </Form>
         </Row>
-        <Row>
+        <Row className="quiz">
             <Questions questions={questions} />
         </Row> 
         <Row className="loading">

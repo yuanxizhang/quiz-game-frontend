@@ -5,20 +5,45 @@ body {
 
 .container {
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  top: 1.25rem;
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: left;
 }
 
 .container > * {
   width: 100%;
 }
 
+.select-form {  
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  width: 100%; 
+  align-items: center;
+  background-color: #748CAB;
+  padding: 0 0rem;
+  box-shadow: 2px 2px rgba(0, 0, 0, .6);
+}
+
+.quiz {
+  position: absolute;
+  top: 6rem;
+  left: 2rem;
+  width: 100%;
+  margin: 1px auto;
+  background-color: #748CAB;
+}
+
 .main {
   position: absolute;
-  top: 8rem;
+  top: 10rem;
   left: 0rem;
   align-items: center;
 }
@@ -110,7 +135,8 @@ body {
     background: #1D2D44;
     font-size: 1rem;
     margin: 0.5rem;
-    width: 10rem;
+    width: 9rem;
+    height: 3rem;
   }
 
   .btn-flat {
@@ -222,16 +248,6 @@ body {
     text-align: center;
   }
 
-  .search-section {
-    position: absolute;
-    top: 0.25rem;
-    left: 0.5rem;
-    width: 100%;
-    margin: 0em auto;
-    background-color:  #748CAB;
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .6);
-  }
-
   .new-problem-form {
     position: absolute;
     top: 3.5rem;
@@ -241,7 +257,7 @@ body {
     background-color: #748CAB;
     margin: 0em auto;
     padding: 0 0.5rem;
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .6);
+    box-shadow: 2px 1px rgba(0, 0, 0, .6);
   }
 
   .new-solution-form {
@@ -251,18 +267,7 @@ body {
     background-color: #748CAB;
     margin: 0em auto;
     padding: 0.5 0.5rem;
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .6);
-  }
-
-  .select-form {  
-    position: absolute;
-    top: 0rem;
-    left: 0.25rem;
-    width: 100%;  
-    align-items: center;
-    background-color: #748CAB;
-    padding: 0 0rem;
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .6);
+    box-shadow: 2px 1px rgba(0, 0, 0, .6);
   }
 
   .success-alert {
@@ -275,14 +280,7 @@ body {
     color: #1D2D44;
   }
 
-  .quiz {
-    position: absolute;
-    top: 3rem;
-    left: 3rem;
-    width: 100%;
-    margin: 1px auto;
-    background-color: #748CAB;
-  }
+  
 
   .code {
     margin: 0.25rem;

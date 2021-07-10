@@ -49,7 +49,7 @@ const FlashcardsContainer = () => {
 
     return (
        <Container className="container">
-        <Row className="search-section">
+        <Row className="select-section">
             <Form className="select-form" onSubmit={handleSubmit}>
                 <Row>
                     <Col>

@@ -36,7 +36,7 @@ const Navigation = () => (
                 <ul className="nav navbar-nav mr-auto">                 
                     <li className="nav-item"><Link to="/flashcards">Flashcards</Link></li>
                     <li className="nav-item"><Link to="/games">Quiz Games</Link></li>            
-                    <li className="nav-item"><Link to="/jobs">Developer Jobs</Link></li>
+//                     <li className="nav-item"><Link to="/jobs">Developer Jobs</Link></li>
                     <li className="nav-item"><Link to="/problems">Forum</Link></li>
                 </ul>
                 <ul className="nav navbar-nav ml-auto">
@@ -60,7 +60,7 @@ const Switchboard = () => (
         <Route path="/signup" render={(props) => <Signup {...props} />} />        
         <Route path="/flashcards" component={FlashcardsContainer} />
         <Route path="/games" component={QuizGamesContainer} />         
-        <Route path="/jobs" component={JobsContainer} />
+//         <Route path="/jobs" component={JobsContainer} />
         <Route path="/problems" component={ProblemsContainer} />
         <PrivateRoute path={"/profile"} component={Profile} />            
     </Switch> 
